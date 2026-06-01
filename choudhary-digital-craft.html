@@ -1,0 +1,1584 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Choudhary Digital Craft - Premium E-Books, Web Development, Android & Ethical Hacking Courses">
+<meta name="keywords" content="web development, ethical hacking, android development, e-books, online courses, cyber security">
+<title>Choudhary Digital Craft</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #0a0a0f;
+  --bg2: #10101a;
+  --bg3: #16162a;
+  --card: #1a1a2e;
+  --card2: #1e1e35;
+  --border: rgba(100,120,255,0.15);
+  --border2: rgba(100,120,255,0.3);
+  --text: #e8e8f5;
+  --text2: #9090b8;
+  --text3: #6060a0;
+  --accent: #6366f1;
+  --accent2: #8b5cf6;
+  --accent3: #06b6d4;
+  --accent4: #10b981;
+  --red: #ef4444;
+  --orange: #f97316;
+  --yellow: #eab308;
+  --glow: rgba(99,102,241,0.3);
+  --glow2: rgba(139,92,246,0.2);
+  --nav-h: 68px;
+  --radius: 14px;
+  --radius2: 22px;
+  --font-head: 'Syne', sans-serif;
+  --font-body: 'DM Sans', sans-serif;
+  --shadow: 0 8px 32px rgba(0,0,0,0.4);
+  --shadow2: 0 20px 60px rgba(0,0,0,0.5);
+  --transition: 0.3s cubic-bezier(0.4,0,0.2,1);
+}
+[data-theme="light"] {
+  --bg: #f0f0ff;
+  --bg2: #e8e8ff;
+  --bg3: #ddddf8;
+  --card: #ffffff;
+  --card2: #f5f5ff;
+  --border: rgba(99,102,241,0.2);
+  --border2: rgba(99,102,241,0.4);
+  --text: #1a1a2e;
+  --text2: #4a4a7a;
+  --text3: #7070aa;
+  --glow: rgba(99,102,241,0.15);
+  --glow2: rgba(139,92,246,0.1);
+  --shadow: 0 8px 32px rgba(99,102,241,0.12);
+  --shadow2: 0 20px 60px rgba(99,102,241,0.18);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{font-family:var(--font-body);background:var(--bg);color:var(--text);min-height:100vh;overflow-x:hidden;transition:background var(--transition),color var(--transition);}
+a{color:inherit;text-decoration:none;}
+img{max-width:100%;}
+button{cursor:pointer;font-family:var(--font-body);}
+input,textarea,select{font-family:var(--font-body);}
+
+/* SCROLLBAR */
+::-webkit-scrollbar{width:6px;}
+::-webkit-scrollbar-track{background:var(--bg2);}
+::-webkit-scrollbar-thumb{background:var(--accent);border-radius:3px;}
+
+/* NOISE TEXTURE */
+body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");pointer-events:none;z-index:0;opacity:.4;}
+
+/* NAVBAR */
+nav{position:fixed;top:0;left:0;right:0;height:var(--nav-h);z-index:1000;display:flex;align-items:center;justify-content:space-between;padding:0 clamp(16px,4vw,48px);background:rgba(10,10,15,0.85);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);transition:background var(--transition);}
+[data-theme="light"] nav{background:rgba(240,240,255,0.85);}
+.logo{display:flex;align-items:center;gap:10px;font-family:var(--font-head);font-weight:800;font-size:1.25rem;letter-spacing:-0.5px;}
+.logo-icon{width:38px;height:38px;background:linear-gradient(135deg,var(--accent),var(--accent2));border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.1rem;flex-shrink:0;box-shadow:0 0 20px var(--glow);}
+.logo span{background:linear-gradient(135deg,var(--accent),var(--accent3));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+.nav-links{display:flex;align-items:center;gap:4px;}
+.nav-links a{padding:8px 14px;border-radius:8px;font-size:.875rem;font-weight:500;color:var(--text2);transition:all var(--transition);position:relative;}
+.nav-links a:hover,.nav-links a.active{color:var(--text);background:var(--border);}
+.nav-links a.active::after{content:'';position:absolute;bottom:4px;left:50%;transform:translateX(-50%);width:4px;height:4px;background:var(--accent);border-radius:50%;}
+.nav-actions{display:flex;align-items:center;gap:8px;}
+.theme-btn{width:38px;height:38px;border-radius:10px;border:1px solid var(--border);background:var(--card);color:var(--text2);font-size:1rem;display:flex;align-items:center;justify-content:center;transition:all var(--transition);}
+.theme-btn:hover{border-color:var(--accent);color:var(--accent);}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:10px 20px;border-radius:10px;font-size:.875rem;font-weight:600;border:none;transition:all var(--transition);cursor:pointer;}
+.btn-primary{background:linear-gradient(135deg,var(--accent),var(--accent2));color:#fff;box-shadow:0 0 20px var(--glow);}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 0 30px var(--glow),0 8px 20px rgba(0,0,0,0.3);}
+.btn-outline{background:transparent;border:1px solid var(--border2);color:var(--text);padding:10px 20px;}
+.btn-outline:hover{background:var(--border);border-color:var(--accent);}
+.btn-sm{padding:7px 14px;font-size:.8rem;}
+.hamburger{display:none;width:38px;height:38px;border-radius:10px;border:1px solid var(--border);background:var(--card);color:var(--text);font-size:1.1rem;align-items:center;justify-content:center;}
+
+/* MOBILE NAV */
+.mobile-nav{display:none;position:fixed;top:var(--nav-h);left:0;right:0;background:var(--bg2);border-bottom:1px solid var(--border);z-index:999;padding:16px;flex-direction:column;gap:4px;}
+.mobile-nav.open{display:flex;}
+.mobile-nav a{padding:12px 16px;border-radius:10px;font-weight:500;color:var(--text2);transition:all var(--transition);}
+.mobile-nav a:hover,.mobile-nav a.active{background:var(--border);color:var(--text);}
+
+/* MAIN CONTENT */
+main{padding-top:var(--nav-h);}
+.page{display:none;}
+.page.active{display:block;}
+
+/* HERO */
+.hero{position:relative;min-height:calc(100vh - var(--nav-h));display:flex;align-items:center;overflow:hidden;padding:60px clamp(16px,4vw,48px);}
+.hero-bg{position:absolute;inset:0;z-index:0;}
+.hero-bg::before{content:'';position:absolute;top:-50%;left:-20%;width:700px;height:700px;background:radial-gradient(circle,rgba(99,102,241,0.2) 0%,transparent 70%);animation:float1 8s ease-in-out infinite;}
+.hero-bg::after{content:'';position:absolute;bottom:-30%;right:-10%;width:500px;height:500px;background:radial-gradient(circle,rgba(139,92,246,0.15) 0%,transparent 70%);animation:float1 10s ease-in-out infinite reverse;}
+.hero-grid{position:absolute;inset:0;background-image:linear-gradient(var(--border) 1px,transparent 1px),linear-gradient(90deg,var(--border) 1px,transparent 1px);background-size:60px 60px;opacity:.3;}
+@keyframes float1{0%,100%{transform:translate(0,0) scale(1);}50%{transform:translate(30px,-30px) scale(1.05);}}
+.hero-content{position:relative;z-index:1;max-width:680px;}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;padding:8px 16px;background:rgba(99,102,241,0.15);border:1px solid rgba(99,102,241,0.3);border-radius:100px;font-size:.8rem;font-weight:600;color:var(--accent3);margin-bottom:24px;animation:fadeUp .6s ease both;}
+.hero-badge::before{content:'●';font-size:.5rem;animation:pulse 2s infinite;}
+@keyframes pulse{0%,100%{opacity:1;}50%{opacity:.3;}}
+.hero h1{font-family:var(--font-head);font-size:clamp(2.5rem,6vw,5rem);font-weight:800;line-height:1.05;letter-spacing:-2px;margin-bottom:24px;animation:fadeUp .6s .1s ease both;}
+.hero h1 .line{display:block;}
+.hero h1 .grad{background:linear-gradient(135deg,var(--accent),var(--accent2),var(--accent3));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+.hero p{font-size:1.1rem;color:var(--text2);line-height:1.7;max-width:520px;margin-bottom:36px;animation:fadeUp .6s .2s ease both;}
+.hero-actions{display:flex;flex-wrap:wrap;gap:12px;animation:fadeUp .6s .3s ease both;}
+.hero-stats{display:flex;flex-wrap:wrap;gap:32px;margin-top:52px;animation:fadeUp .6s .4s ease both;}
+.hero-stat{display:flex;flex-direction:column;gap:2px;}
+.hero-stat strong{font-family:var(--font-head);font-size:1.8rem;font-weight:800;color:var(--accent);}
+.hero-stat span{font-size:.8rem;color:var(--text3);text-transform:uppercase;letter-spacing:1px;}
+.hero-visual{position:absolute;right:clamp(16px,6vw,100px);top:50%;transform:translateY(-50%);z-index:1;display:flex;flex-direction:column;gap:16px;animation:fadeRight .8s .3s ease both;}
+@keyframes fadeRight{from{opacity:0;transform:translate(40px,-50%);}to{opacity:1;transform:translate(0,-50%);}}
+.hero-card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:16px 20px;width:220px;transition:all var(--transition);}
+.hero-card:hover{transform:translateY(-4px);border-color:var(--accent);}
+.hero-card-icon{width:36px;height:36px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:1.1rem;margin-bottom:10px;}
+.hero-card h4{font-family:var(--font-head);font-size:.9rem;font-weight:700;margin-bottom:4px;}
+.hero-card p{font-size:.75rem;color:var(--text2);}
+@keyframes fadeUp{from{opacity:0;transform:translateY(20px);}to{opacity:1;transform:translateY(0);}}
+
+/* SECTIONS */
+section{padding:80px clamp(16px,4vw,48px);}
+.section-header{text-align:center;max-width:600px;margin:0 auto 56px;}
+.section-tag{display:inline-block;padding:6px 14px;background:rgba(99,102,241,0.1);border:1px solid rgba(99,102,241,0.25);border-radius:100px;font-size:.75rem;font-weight:700;color:var(--accent);letter-spacing:1.5px;text-transform:uppercase;margin-bottom:14px;}
+.section-header h2{font-family:var(--font-head);font-size:clamp(1.8rem,4vw,2.8rem);font-weight:800;letter-spacing:-1px;line-height:1.15;margin-bottom:14px;}
+.section-header p{color:var(--text2);font-size:1.05rem;line-height:1.7;}
+.grad-text{background:linear-gradient(135deg,var(--accent),var(--accent3));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+
+/* CARDS GRID */
+.grid-2{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:24px;}
+.grid-3{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:24px;}
+.grid-4{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:20px;}
+
+/* COURSE CARD */
+.course-card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius2);overflow:hidden;transition:all var(--transition);cursor:pointer;}
+.course-card:hover{transform:translateY(-6px);border-color:var(--border2);box-shadow:var(--shadow);}
+.course-thumb{height:160px;display:flex;align-items:center;justify-content:center;font-size:3.5rem;position:relative;overflow:hidden;}
+.course-thumb::after{content:'';position:absolute;inset:0;background:linear-gradient(to bottom,transparent 50%,rgba(0,0,0,0.4));}
+.course-body{padding:20px;}
+.course-badge{display:inline-block;padding:4px 10px;border-radius:6px;font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.5px;margin-bottom:10px;}
+.course-card h3{font-family:var(--font-head);font-size:1.05rem;font-weight:700;margin-bottom:8px;line-height:1.3;}
+.course-card p{font-size:.85rem;color:var(--text2);line-height:1.6;margin-bottom:16px;}
+.course-meta{display:flex;align-items:center;justify-content:space-between;padding-top:14px;border-top:1px solid var(--border);}
+.course-price{font-family:var(--font-head);font-size:1.2rem;font-weight:800;color:var(--accent);}
+.course-price small{font-size:.75rem;color:var(--text3);text-decoration:line-through;margin-left:4px;}
+.course-rating{display:flex;align-items:center;gap:4px;font-size:.8rem;color:var(--yellow);}
+.enroll-btn{width:100%;margin-top:14px;}
+
+/* EBOOK CARD */
+.ebook-card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:20px;display:flex;gap:16px;transition:all var(--transition);}
+.ebook-card:hover{transform:translateY(-4px);border-color:var(--border2);box-shadow:var(--shadow);}
+.ebook-cover{width:70px;height:95px;border-radius:6px;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:1.8rem;position:relative;}
+.ebook-cover::before{content:'';position:absolute;left:0;top:6px;bottom:6px;width:5px;background:rgba(0,0,0,0.3);border-radius:0 3px 3px 0;}
+.ebook-info{flex:1;min-width:0;}
+.ebook-cat{font-size:.7rem;font-weight:700;color:var(--accent3);text-transform:uppercase;letter-spacing:1px;margin-bottom:6px;}
+.ebook-info h4{font-family:var(--font-head);font-size:.95rem;font-weight:700;margin-bottom:4px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.ebook-info p{font-size:.78rem;color:var(--text2);line-height:1.5;margin-bottom:10px;}
+.ebook-footer{display:flex;align-items:center;justify-content:space-between;}
+.ebook-price{font-family:var(--font-head);font-weight:800;color:var(--accent4);}
+
+/* TESTIMONIAL */
+.testimonial-card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius2);padding:28px;position:relative;transition:all var(--transition);}
+.testimonial-card:hover{border-color:var(--border2);}
+.testimonial-card::before{content:'"';position:absolute;top:16px;right:20px;font-size:4rem;font-family:Georgia,serif;color:var(--accent);opacity:.2;line-height:1;}
+.testimonial-text{font-size:.95rem;color:var(--text2);line-height:1.7;margin-bottom:20px;font-style:italic;}
+.testimonial-author{display:flex;align-items:center;gap:12px;}
+.avatar{width:44px;height:44px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:1rem;flex-shrink:0;}
+.testimonial-author-info h5{font-weight:700;font-size:.9rem;}
+.testimonial-author-info span{font-size:.78rem;color:var(--text3);}
+.stars{color:var(--yellow);font-size:.8rem;margin-bottom:2px;}
+
+/* BLOG */
+.blog-card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius2);overflow:hidden;transition:all var(--transition);}
+.blog-card:hover{transform:translateY(-4px);border-color:var(--border2);box-shadow:var(--shadow);}
+.blog-img{height:180px;display:flex;align-items:center;justify-content:center;font-size:3rem;}
+.blog-body{padding:22px;}
+.blog-meta{display:flex;align-items:center;gap:12px;margin-bottom:10px;}
+.blog-tag{padding:3px 10px;border-radius:100px;font-size:.7rem;font-weight:700;background:rgba(99,102,241,0.15);color:var(--accent);}
+.blog-date{font-size:.75rem;color:var(--text3);}
+.blog-body h3{font-family:var(--font-head);font-size:1rem;font-weight:700;margin-bottom:8px;line-height:1.4;}
+.blog-body p{font-size:.83rem;color:var(--text2);line-height:1.6;}
+.blog-read{display:inline-flex;align-items:center;gap:6px;margin-top:12px;font-size:.83rem;font-weight:600;color:var(--accent);transition:gap var(--transition);}
+.blog-read:hover{gap:10px;}
+
+/* FEATURE STRIP */
+.feature-strip{display:flex;flex-wrap:wrap;gap:20px;justify-content:center;padding:40px clamp(16px,4vw,48px);background:var(--bg2);border-top:1px solid var(--border);border-bottom:1px solid var(--border);}
+.feature-item{display:flex;align-items:center;gap:10px;font-size:.9rem;font-weight:500;color:var(--text2);}
+.feature-item span{width:32px;height:32px;background:rgba(99,102,241,0.1);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:.95rem;}
+
+/* ABOUT */
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center;max-width:1100px;margin:0 auto;}
+.about-img{position:relative;border-radius:var(--radius2);overflow:hidden;background:var(--card);height:420px;display:flex;align-items:center;justify-content:center;border:1px solid var(--border);}
+.about-img-placeholder{font-size:6rem;text-align:center;}
+.about-img::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,var(--accent),var(--accent2),var(--accent3));}
+.about-content h2{font-family:var(--font-head);font-size:clamp(1.8rem,3.5vw,2.5rem);font-weight:800;letter-spacing:-1px;line-height:1.15;margin-bottom:18px;}
+.about-content p{color:var(--text2);font-size:1rem;line-height:1.8;margin-bottom:16px;}
+.about-vals{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:28px;}
+.about-val{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:16px;transition:border-color var(--transition);}
+.about-val:hover{border-color:var(--accent);}
+.about-val-icon{font-size:1.4rem;margin-bottom:8px;}
+.about-val h4{font-family:var(--font-head);font-size:.9rem;font-weight:700;margin-bottom:4px;}
+.about-val p{font-size:.78rem;color:var(--text2);line-height:1.5;margin:0;}
+.team-section{margin-top:80px;}
+.team-card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius2);padding:28px;text-align:center;transition:all var(--transition);}
+.team-card:hover{transform:translateY(-4px);border-color:var(--border2);}
+.team-avatar{width:80px;height:80px;border-radius:50%;margin:0 auto 14px;display:flex;align-items:center;justify-content:center;font-size:2rem;border:3px solid var(--border2);}
+.team-card h4{font-family:var(--font-head);font-size:1rem;font-weight:700;margin-bottom:4px;}
+.team-card span{font-size:.8rem;color:var(--accent);font-weight:600;}
+.team-card p{font-size:.8rem;color:var(--text2);margin-top:8px;line-height:1.5;}
+
+/* CONTACT */
+.contact-grid{display:grid;grid-template-columns:1fr 1.4fr;gap:40px;max-width:1000px;margin:0 auto;}
+.contact-info h3{font-family:var(--font-head);font-size:1.5rem;font-weight:800;margin-bottom:16px;}
+.contact-info p{color:var(--text2);font-size:.95rem;line-height:1.7;margin-bottom:28px;}
+.contact-items{display:flex;flex-direction:column;gap:16px;}
+.contact-item{display:flex;align-items:center;gap:14px;padding:14px 18px;background:var(--card);border:1px solid var(--border);border-radius:var(--radius);transition:border-color var(--transition);}
+.contact-item:hover{border-color:var(--accent);}
+.contact-item-icon{width:40px;height:40px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.1rem;flex-shrink:0;}
+.contact-item-info label{font-size:.75rem;color:var(--text3);text-transform:uppercase;letter-spacing:1px;font-weight:600;}
+.contact-item-info span{display:block;font-size:.9rem;font-weight:500;}
+.form-card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius2);padding:32px;}
+.form-group{margin-bottom:18px;}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+label{display:block;font-size:.8rem;font-weight:600;color:var(--text2);margin-bottom:6px;text-transform:uppercase;letter-spacing:.5px;}
+input,textarea,select{width:100%;background:var(--bg2);border:1px solid var(--border);border-radius:10px;padding:12px 16px;color:var(--text);font-size:.9rem;outline:none;transition:all var(--transition);}
+input:focus,textarea:focus,select:focus{border-color:var(--accent);box-shadow:0 0 0 3px var(--glow);}
+textarea{resize:vertical;min-height:120px;}
+.form-submit{width:100%;padding:14px;font-size:.95rem;font-weight:700;}
+
+/* DASHBOARD */
+.dash-layout{display:grid;grid-template-columns:240px 1fr;gap:0;min-height:calc(100vh - var(--nav-h));}
+.dash-sidebar{background:var(--bg2);border-right:1px solid var(--border);padding:28px 16px;position:sticky;top:var(--nav-h);height:calc(100vh - var(--nav-h));overflow-y:auto;}
+.dash-user{text-align:center;padding:20px 16px;background:var(--card);border-radius:var(--radius);margin-bottom:24px;border:1px solid var(--border);}
+.dash-avatar{width:64px;height:64px;border-radius:50%;background:linear-gradient(135deg,var(--accent),var(--accent2));margin:0 auto 10px;display:flex;align-items:center;justify-content:center;font-size:1.6rem;font-weight:700;color:#fff;}
+.dash-user h4{font-family:var(--font-head);font-weight:700;font-size:.95rem;}
+.dash-user span{font-size:.75rem;color:var(--accent);}
+.dash-nav{display:flex;flex-direction:column;gap:4px;}
+.dash-nav-item{display:flex;align-items:center;gap:10px;padding:11px 14px;border-radius:10px;font-size:.875rem;font-weight:500;color:var(--text2);cursor:pointer;transition:all var(--transition);}
+.dash-nav-item:hover,.dash-nav-item.active{background:linear-gradient(90deg,rgba(99,102,241,0.15),transparent);color:var(--text);border-left:3px solid var(--accent);}
+.dash-nav-item .icon{font-size:1rem;width:20px;}
+.dash-main{padding:32px;overflow-y:auto;}
+.dash-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:28px;}
+.dash-header h2{font-family:var(--font-head);font-size:1.5rem;font-weight:800;}
+.dash-cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:16px;margin-bottom:32px;}
+.dash-stat{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:20px;transition:border-color var(--transition);}
+.dash-stat:hover{border-color:var(--accent);}
+.dash-stat-val{font-family:var(--font-head);font-size:2rem;font-weight:800;line-height:1;}
+.dash-stat-label{font-size:.78rem;color:var(--text2);margin-top:6px;}
+.progress-list{display:flex;flex-direction:column;gap:16px;}
+.progress-item{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:18px;}
+.progress-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;}
+.progress-header span{font-size:.85rem;font-weight:600;}
+.progress-header strong{font-size:.85rem;color:var(--accent);}
+.progress-bar{height:6px;background:var(--bg3);border-radius:3px;overflow:hidden;}
+.progress-fill{height:100%;border-radius:3px;background:linear-gradient(90deg,var(--accent),var(--accent2));transition:width 1s ease;}
+.cert-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:16px;}
+.cert-card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:20px;display:flex;align-items:center;gap:14px;transition:border-color var(--transition);}
+.cert-card:hover{border-color:var(--accent4);}
+.cert-icon{width:48px;height:48px;background:linear-gradient(135deg,var(--accent4),#06b6d4);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.3rem;flex-shrink:0;}
+.cert-info h4{font-weight:700;font-size:.9rem;margin-bottom:4px;}
+.cert-info span{font-size:.75rem;color:var(--text3);}
+.downloads-list{display:flex;flex-direction:column;gap:12px;}
+.dl-item{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:16px;display:flex;align-items:center;gap:14px;transition:border-color var(--transition);}
+.dl-item:hover{border-color:var(--border2);}
+.dl-icon{width:40px;height:56px;background:rgba(239,68,68,0.15);border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:1rem;color:var(--red);flex-shrink:0;}
+.dl-info{flex:1;}
+.dl-info h4{font-weight:600;font-size:.9rem;margin-bottom:2px;}
+.dl-info span{font-size:.75rem;color:var(--text3);}
+
+/* ADMIN */
+.admin-stats{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:16px;margin-bottom:32px;}
+.admin-stat{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:20px;position:relative;overflow:hidden;transition:all var(--transition);}
+.admin-stat:hover{transform:translateY(-3px);box-shadow:var(--shadow);}
+.admin-stat::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;border-radius:var(--radius) var(--radius) 0 0;}
+.admin-stat.blue::before{background:linear-gradient(90deg,var(--accent),var(--accent2));}
+.admin-stat.green::before{background:linear-gradient(90deg,var(--accent4),#06b6d4);}
+.admin-stat.orange::before{background:linear-gradient(90deg,var(--orange),var(--yellow));}
+.admin-stat.red::before{background:linear-gradient(90deg,var(--red),var(--orange));}
+.admin-stat-val{font-family:var(--font-head);font-size:2.2rem;font-weight:800;}
+.admin-stat-label{font-size:.8rem;color:var(--text2);margin-top:4px;}
+.admin-stat-change{font-size:.75rem;margin-top:8px;display:flex;align-items:center;gap:4px;}
+.up{color:var(--accent4);}
+.down{color:var(--red);}
+.admin-table-wrap{background:var(--card);border:1px solid var(--border);border-radius:var(--radius2);overflow:hidden;margin-bottom:24px;}
+.admin-table-header{padding:18px 20px;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;}
+.admin-table-header h3{font-family:var(--font-head);font-weight:700;}
+table{width:100%;border-collapse:collapse;}
+th{padding:12px 16px;background:var(--bg2);font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--text2);text-align:left;}
+td{padding:13px 16px;border-top:1px solid var(--border);font-size:.875rem;}
+tr:hover td{background:rgba(99,102,241,0.04);}
+.status-badge{padding:3px 10px;border-radius:100px;font-size:.7rem;font-weight:700;}
+.status-active{background:rgba(16,185,129,0.15);color:var(--accent4);}
+.status-pending{background:rgba(234,179,8,0.15);color:var(--yellow);}
+.status-inactive{background:rgba(239,68,68,0.1);color:var(--red);}
+.action-btns{display:flex;gap:6px;}
+.action-btn{width:28px;height:28px;border-radius:6px;border:1px solid var(--border);background:transparent;font-size:.8rem;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:all var(--transition);}
+.action-btn:hover{background:var(--border);color:var(--accent);}
+.chart-container{background:var(--card);border:1px solid var(--border);border-radius:var(--radius2);padding:24px;margin-bottom:24px;}
+.chart-header{display:flex;justify-content:space-between;margin-bottom:20px;}
+.chart-header h3{font-family:var(--font-head);font-weight:700;}
+.mini-chart{height:120px;display:flex;align-items:flex-end;gap:6px;padding:10px 0;}
+.bar{flex:1;border-radius:4px 4px 0 0;background:linear-gradient(to top,var(--accent),var(--accent2));opacity:.7;transition:opacity var(--transition);}
+.bar:hover{opacity:1;}
+.chart-labels{display:flex;gap:6px;margin-top:8px;}
+.chart-label{flex:1;text-align:center;font-size:.65rem;color:var(--text3);}
+
+/* SEARCH BAR */
+.search-bar{display:flex;gap:12px;margin-bottom:28px;}
+.search-input-wrap{flex:1;position:relative;}
+.search-input-wrap input{padding-left:40px;}
+.search-icon{position:absolute;left:12px;top:50%;transform:translateY(-50%);color:var(--text3);}
+.filter-btn{padding:11px 18px;background:var(--card);border:1px solid var(--border);border-radius:10px;color:var(--text2);font-size:.85rem;font-weight:600;transition:all var(--transition);}
+.filter-btn:hover{border-color:var(--accent);color:var(--accent);}
+.category-tabs{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:28px;}
+.cat-tab{padding:7px 16px;border-radius:100px;font-size:.8rem;font-weight:600;border:1px solid var(--border);background:transparent;color:var(--text2);cursor:pointer;transition:all var(--transition);}
+.cat-tab.active,.cat-tab:hover{background:var(--accent);color:#fff;border-color:var(--accent);}
+
+/* LOGIN */
+.auth-wrap{max-width:420px;margin:60px auto;padding:0 16px;}
+.auth-card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius2);padding:36px;}
+.auth-card h2{font-family:var(--font-head);font-size:1.8rem;font-weight:800;text-align:center;margin-bottom:8px;}
+.auth-card p{text-align:center;color:var(--text2);font-size:.9rem;margin-bottom:28px;}
+.auth-tabs{display:flex;gap:0;margin-bottom:28px;background:var(--bg2);border-radius:10px;padding:4px;}
+.auth-tab{flex:1;padding:9px;text-align:center;border-radius:8px;font-size:.875rem;font-weight:600;cursor:pointer;color:var(--text2);transition:all var(--transition);}
+.auth-tab.active{background:var(--accent);color:#fff;}
+.divider{display:flex;align-items:center;gap:12px;margin:20px 0;color:var(--text3);font-size:.8rem;}
+.divider::before,.divider::after{content:'';flex:1;height:1px;background:var(--border);}
+.social-btns{display:flex;gap:10px;}
+.social-btn{flex:1;padding:11px;border-radius:10px;border:1px solid var(--border);background:var(--bg2);font-size:.85rem;font-weight:600;color:var(--text2);transition:all var(--transition);}
+.social-btn:hover{border-color:var(--accent);color:var(--text);}
+
+/* PAGE HERO */
+.page-hero{background:var(--bg2);border-bottom:1px solid var(--border);padding:48px clamp(16px,4vw,48px);text-align:center;position:relative;overflow:hidden;}
+.page-hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at top,rgba(99,102,241,0.12),transparent 60%);}
+.page-hero h1{font-family:var(--font-head);font-size:clamp(2rem,5vw,3.5rem);font-weight:800;letter-spacing:-1.5px;position:relative;}
+.page-hero p{color:var(--text2);font-size:1rem;max-width:480px;margin:12px auto 0;position:relative;}
+
+/* FOOTER */
+footer{background:var(--bg2);border-top:1px solid var(--border);padding:60px clamp(16px,4vw,48px) 32px;}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px;margin-bottom:48px;}
+.footer-brand .logo{margin-bottom:16px;}
+.footer-brand p{color:var(--text2);font-size:.875rem;line-height:1.7;max-width:280px;margin-bottom:20px;}
+.social-links{display:flex;gap:10px;}
+.social-link{width:36px;height:36px;border-radius:8px;background:var(--card);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:.9rem;transition:all var(--transition);}
+.social-link:hover{background:var(--accent);border-color:var(--accent);}
+.footer-col h4{font-family:var(--font-head);font-weight:700;font-size:.9rem;margin-bottom:16px;color:var(--text);}
+.footer-col ul{list-style:none;display:flex;flex-direction:column;gap:8px;}
+.footer-col li a{font-size:.85rem;color:var(--text2);transition:color var(--transition);}
+.footer-col li a:hover{color:var(--accent);}
+.footer-bottom{display:flex;align-items:center;justify-content:space-between;padding-top:28px;border-top:1px solid var(--border);}
+.footer-bottom p{font-size:.8rem;color:var(--text3);}
+.footer-legal{display:flex;gap:16px;}
+.footer-legal a{font-size:.8rem;color:var(--text3);transition:color var(--transition);}
+.footer-legal a:hover{color:var(--accent);}
+
+/* TOAST */
+.toast{position:fixed;bottom:24px;right:24px;background:var(--card);border:1px solid var(--accent4);border-radius:12px;padding:14px 20px;font-size:.875rem;font-weight:500;z-index:9999;transform:translateY(100px);opacity:0;transition:all .4s cubic-bezier(0.34,1.56,0.64,1);display:flex;align-items:center;gap:10px;box-shadow:var(--shadow);}
+.toast.show{transform:translateY(0);opacity:1;}
+.toast-icon{color:var(--accent4);font-size:1.1rem;}
+
+/* UPLOAD ZONE */
+.upload-zone{border:2px dashed var(--border2);border-radius:var(--radius);padding:40px;text-align:center;cursor:pointer;transition:all var(--transition);}
+.upload-zone:hover{border-color:var(--accent);background:rgba(99,102,241,0.05);}
+.upload-zone .upload-icon{font-size:2.5rem;margin-bottom:12px;}
+.upload-zone h4{font-weight:700;margin-bottom:6px;}
+.upload-zone p{font-size:.85rem;color:var(--text2);}
+
+/* MODAL */
+.modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,0.7);z-index:2000;display:flex;align-items:center;justify-content:center;padding:20px;opacity:0;pointer-events:none;transition:opacity var(--transition);}
+.modal-overlay.open{opacity:1;pointer-events:all;}
+.modal{background:var(--card);border:1px solid var(--border2);border-radius:var(--radius2);padding:32px;max-width:500px;width:100%;position:relative;transform:scale(0.9);transition:transform var(--transition);}
+.modal-overlay.open .modal{transform:scale(1);}
+.modal-close{position:absolute;top:16px;right:16px;width:32px;height:32px;border-radius:8px;background:var(--bg2);border:1px solid var(--border);color:var(--text2);font-size:1rem;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:all var(--transition);}
+.modal-close:hover{background:var(--red);color:#fff;border-color:var(--red);}
+.modal h3{font-family:var(--font-head);font-size:1.3rem;font-weight:800;margin-bottom:20px;}
+
+/* RESPONSIVE */
+@media(max-width:1024px){.about-grid{grid-template-columns:1fr;}.footer-grid{grid-template-columns:1fr 1fr;}.hero-visual{display:none;}.contact-grid{grid-template-columns:1fr;}}
+@media(max-width:768px){.nav-links,.nav-actions .btn{display:none;}.hamburger{display:flex;}.dash-layout{grid-template-columns:1fr;}.dash-sidebar{position:relative;height:auto;top:0;}.form-row{grid-template-columns:1fr;}.footer-grid{grid-template-columns:1fr;}.about-vals{grid-template-columns:1fr;}.admin-table-wrap{overflow-x:auto;}}
+@media(max-width:480px){.hero h1{font-size:2.2rem;}.hero-stats{gap:20px;}.auth-card{padding:24px;}}
+</style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav>
+  <div class="logo">
+    <div class="logo-icon">⚡</div>
+    <div>Choudhary <span>Digital Craft</span></div>
+  </div>
+  <div class="nav-links">
+    <a href="#" class="active" onclick="showPage('home',this)">Home</a>
+    <a href="#" onclick="showPage('about',this)">About</a>
+    <a href="#" onclick="showPage('courses',this)">Courses</a>
+    <a href="#" onclick="showPage('ebooks',this)">E-Books</a>
+    <a href="#" onclick="showPage('blog',this)">Blog</a>
+    <a href="#" onclick="showPage('contact',this)">Contact</a>
+    <a href="#" onclick="showPage('dashboard',this)">Dashboard</a>
+    <a href="#" onclick="showPage('admin',this)">Admin</a>
+  </div>
+  <div class="nav-actions">
+    <button class="theme-btn" onclick="toggleTheme()" title="Toggle theme">🌙</button>
+    <button class="btn btn-primary btn-sm" onclick="showPage('login',document.querySelector('.nav-links a'))">🔐 Login</button>
+    <button class="hamburger" onclick="toggleMobile()" id="hamburger">☰</button>
+  </div>
+</nav>
+
+<!-- MOBILE NAV -->
+<div class="mobile-nav" id="mobileNav">
+  <a href="#" onclick="showPage('home',this);closeMobile()">🏠 Home</a>
+  <a href="#" onclick="showPage('about',this);closeMobile()">👥 About</a>
+  <a href="#" onclick="showPage('courses',this);closeMobile()">📚 Courses</a>
+  <a href="#" onclick="showPage('ebooks',this);closeMobile()">📖 E-Books</a>
+  <a href="#" onclick="showPage('blog',this);closeMobile()">📝 Blog</a>
+  <a href="#" onclick="showPage('contact',this);closeMobile()">📧 Contact</a>
+  <a href="#" onclick="showPage('dashboard',this);closeMobile()">⚡ Dashboard</a>
+  <a href="#" onclick="showPage('admin',this);closeMobile()">🛡️ Admin</a>
+  <a href="#" onclick="showPage('login',this);closeMobile()">🔐 Login</a>
+</div>
+
+<main>
+
+<!-- ══════════════════════ HOME PAGE ══════════════════════ -->
+<div class="page active" id="page-home">
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="hero-bg">
+      <div class="hero-grid"></div>
+    </div>
+    <div class="hero-content">
+      <div class="hero-badge">🚀 India's Premium Digital Learning Platform</div>
+      <h1>
+        <span class="line">Master the</span>
+        <span class="line grad">Digital World</span>
+        <span class="line">One Skill at a Time</span>
+      </h1>
+      <p>From Web Development to Ethical Hacking — get premium courses, expert e-books, and real-world skills that launch your tech career forward.</p>
+      <div class="hero-actions">
+        <button class="btn btn-primary" onclick="showPage('courses',null)">🎓 Explore Courses</button>
+        <button class="btn btn-outline" onclick="showPage('ebooks',null)">📚 Browse E-Books</button>
+      </div>
+      <div class="hero-stats">
+        <div class="hero-stat"><strong>12K+</strong><span>Students</span></div>
+        <div class="hero-stat"><strong>50+</strong><span>Courses</span></div>
+        <div class="hero-stat"><strong>200+</strong><span>E-Books</span></div>
+        <div class="hero-stat"><strong>4.9⭐</strong><span>Rating</span></div>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="hero-card">
+        <div class="hero-card-icon" style="background:rgba(99,102,241,0.15);">🌐</div>
+        <h4>Web Dev Bootcamp</h4>
+        <p>Full-stack development from zero to hero</p>
+      </div>
+      <div class="hero-card">
+        <div class="hero-card-icon" style="background:rgba(6,182,212,0.15);">🔐</div>
+        <h4>Ethical Hacking</h4>
+        <p>Legal security training & CEH prep</p>
+      </div>
+      <div class="hero-card">
+        <div class="hero-card-icon" style="background:rgba(16,185,129,0.15);">📱</div>
+        <h4>Android Dev</h4>
+        <p>Build & publish your own APKs</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- FEATURE STRIP -->
+  <div class="feature-strip">
+    <div class="feature-item"><span>🎓</span> Certified Instructors</div>
+    <div class="feature-item"><span>📱</span> Mobile Friendly</div>
+    <div class="feature-item"><span>🔒</span> Secure Payments</div>
+    <div class="feature-item"><span>⚡</span> Lifetime Access</div>
+    <div class="feature-item"><span>🏆</span> Completion Certificates</div>
+    <div class="feature-item"><span>🌙</span> Dark & Light Mode</div>
+    <div class="feature-item"><span>🇮🇳</span> Hindi + English</div>
+  </div>
+
+  <!-- FEATURED COURSES -->
+  <section>
+    <div class="section-header">
+      <div class="section-tag">🔥 Featured Courses</div>
+      <h2>Learn In-Demand <span class="grad-text">Tech Skills</span></h2>
+      <p>Hands-on courses designed for real-world jobs and freelancing success</p>
+    </div>
+    <div class="grid-3">
+      <div class="course-card" onclick="showPage('courses',null)">
+        <div class="course-thumb" style="background:linear-gradient(135deg,#1e3a5f,#2563eb);">🌐</div>
+        <div class="course-body">
+          <span class="course-badge" style="background:rgba(37,99,235,0.15);color:#60a5fa;">Web Dev</span>
+          <h3>Full-Stack Web Development</h3>
+          <p>HTML, CSS, JavaScript, Python Flask, MySQL — build real projects from scratch.</p>
+          <div class="course-meta">
+            <div><div class="course-price">₹1,999 <small>₹4,999</small></div></div>
+            <div class="course-rating">⭐ 4.9 <span style="color:var(--text3)">(312)</span></div>
+          </div>
+          <button class="btn btn-primary enroll-btn btn-sm">Enroll Now</button>
+        </div>
+      </div>
+      <div class="course-card" onclick="showPage('courses',null)">
+        <div class="course-thumb" style="background:linear-gradient(135deg,#1a1a2e,#6b21a8);">🔐</div>
+        <div class="course-body">
+          <span class="course-badge" style="background:rgba(109,40,217,0.15);color:#a78bfa;">Security</span>
+          <h3>Ethical Hacking Fundamentals</h3>
+          <p>Legal penetration testing, CEH prep, Kali Linux, network security essentials.</p>
+          <div class="course-meta">
+            <div><div class="course-price">₹2,499 <small>₹5,999</small></div></div>
+            <div class="course-rating">⭐ 4.8 <span style="color:var(--text3)">(198)</span></div>
+          </div>
+          <button class="btn btn-primary enroll-btn btn-sm">Enroll Now</button>
+        </div>
+      </div>
+      <div class="course-card" onclick="showPage('courses',null)">
+        <div class="course-thumb" style="background:linear-gradient(135deg,#064e3b,#059669);">📱</div>
+        <div class="course-body">
+          <span class="course-badge" style="background:rgba(5,150,105,0.15);color:#34d399;">Android</span>
+          <h3>Android APK Development</h3>
+          <p>Build, test, and publish Android apps. MIT App Inventor to advanced APK creation.</p>
+          <div class="course-meta">
+            <div><div class="course-price">₹1,799 <small>₹3,999</small></div></div>
+            <div class="course-rating">⭐ 4.7 <span style="color:var(--text3)">(156)</span></div>
+          </div>
+          <button class="btn btn-primary enroll-btn btn-sm">Enroll Now</button>
+        </div>
+      </div>
+    </div>
+    <div style="text-align:center;margin-top:36px;">
+      <button class="btn btn-outline" onclick="showPage('courses',null)">View All Courses →</button>
+    </div>
+  </section>
+
+  <!-- LATEST EBOOKS -->
+  <section style="background:var(--bg2);margin:0;">
+    <div class="section-header">
+      <div class="section-tag">📚 Latest E-Books</div>
+      <h2>Expert Knowledge <span class="grad-text">At Your Fingertips</span></h2>
+      <p>Premium PDFs written by industry experts — download instantly after purchase</p>
+    </div>
+    <div class="grid-2">
+      <div class="ebook-card" onclick="showPage('ebooks',null)">
+        <div class="ebook-cover" style="background:linear-gradient(135deg,#1e3a5f,#2563eb);">🌐</div>
+        <div class="ebook-info">
+          <div class="ebook-cat">Web Development</div>
+          <h4>HTML & CSS Mastery Guide</h4>
+          <p>Complete reference for modern responsive web design with 200+ examples.</p>
+          <div class="ebook-footer"><span class="ebook-price">₹299</span><button class="btn btn-primary btn-sm">Buy Now</button></div>
+        </div>
+      </div>
+      <div class="ebook-card" onclick="showPage('ebooks',null)">
+        <div class="ebook-cover" style="background:linear-gradient(135deg,#3b0764,#7c3aed);">🔐</div>
+        <div class="ebook-info">
+          <div class="ebook-cat">Cyber Security</div>
+          <h4>Ethical Hacking Handbook</h4>
+          <p>Tools, techniques and methodologies for authorized security testing.</p>
+          <div class="ebook-footer"><span class="ebook-price">₹499</span><button class="btn btn-primary btn-sm">Buy Now</button></div>
+        </div>
+      </div>
+      <div class="ebook-card" onclick="showPage('ebooks',null)">
+        <div class="ebook-cover" style="background:linear-gradient(135deg,#064e3b,#047857);">🐍</div>
+        <div class="ebook-info">
+          <div class="ebook-cat">Programming</div>
+          <h4>Python for Beginners</h4>
+          <p>Step-by-step Python programming from basics to automation projects.</p>
+          <div class="ebook-footer"><span class="ebook-price">₹349</span><button class="btn btn-primary btn-sm">Buy Now</button></div>
+        </div>
+      </div>
+      <div class="ebook-card" onclick="showPage('ebooks',null)">
+        <div class="ebook-cover" style="background:linear-gradient(135deg,#1c1917,#78350f);">📱</div>
+        <div class="ebook-info">
+          <div class="ebook-cat">Android Dev</div>
+          <h4>Android APK Development</h4>
+          <p>Build your first Android app and publish to Google Play Store.</p>
+          <div class="ebook-footer"><span class="ebook-price">₹399</span><button class="btn btn-primary btn-sm">Buy Now</button></div>
+        </div>
+      </div>
+    </div>
+    <div style="text-align:center;margin-top:36px;">
+      <button class="btn btn-outline" onclick="showPage('ebooks',null)">Browse All E-Books →</button>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section>
+    <div class="section-header">
+      <div class="section-tag">⭐ Student Reviews</div>
+      <h2>What Our <span class="grad-text">Students Say</span></h2>
+      <p>Real feedback from real students who transformed their careers</p>
+    </div>
+    <div class="grid-3">
+      <div class="testimonial-card">
+        <div class="stars">★★★★★</div>
+        <p class="testimonial-text">The web development course is absolutely amazing. The instructor explains everything so clearly. I got my first freelancing project within 2 months of completing the course!</p>
+        <div class="testimonial-author">
+          <div class="avatar" style="background:linear-gradient(135deg,#6366f1,#8b5cf6);">R</div>
+          <div class="testimonial-author-info"><h5>Rahul Sharma</h5><span>Web Developer, Jaipur</span></div>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <div class="stars">★★★★★</div>
+        <p class="testimonial-text">The Ethical Hacking course taught me concepts I never found on YouTube. Everything is legal, hands-on, and practical. Now I'm preparing for CEH certification.</p>
+        <div class="testimonial-author">
+          <div class="avatar" style="background:linear-gradient(135deg,#06b6d4,#0891b2);">P</div>
+          <div class="testimonial-author-info"><h5>Priya Meena</h5><span>Security Analyst, Delhi</span></div>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <div class="stars">★★★★⭐</div>
+        <p class="testimonial-text">E-books are well-organized and to the point. The Python e-book alone saved me months of searching online. Best investment for a beginner programmer!</p>
+        <div class="testimonial-author">
+          <div class="avatar" style="background:linear-gradient(135deg,#10b981,#059669);">A</div>
+          <div class="testimonial-author-info"><h5>Amit Verma</h5><span>Python Developer, Mumbai</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA BANNER -->
+  <div style="background:linear-gradient(135deg,var(--accent),var(--accent2));padding:60px clamp(16px,4vw,48px);text-align:center;position:relative;overflow:hidden;">
+    <div style="position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,0.05) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.05) 1px,transparent 1px);background-size:30px 30px;"></div>
+    <div style="position:relative;">
+      <h2 style="font-family:var(--font-head);font-size:clamp(1.6rem,4vw,2.5rem);font-weight:800;color:#fff;margin-bottom:12px;letter-spacing:-1px;">Ready to Start Your Tech Journey?</h2>
+      <p style="color:rgba(255,255,255,0.8);font-size:1rem;margin-bottom:28px;max-width:480px;margin-left:auto;margin-right:auto;">Join 12,000+ students already learning with Choudhary Digital Craft</p>
+      <button class="btn" style="background:#fff;color:var(--accent);font-weight:800;padding:14px 32px;font-size:1rem;" onclick="showPage('login',null)">Get Started Free →</button>
+    </div>
+  </div>
+
+  <footer>
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="logo" style="margin-bottom:14px;"><div class="logo-icon">⚡</div><div>Choudhary <span>Digital Craft</span></div></div>
+        <p>India's trusted platform for digital education — from web development to ethical hacking, we make tech accessible for everyone.</p>
+        <div class="social-links">
+          <a class="social-link" href="#">📘</a>
+          <a class="social-link" href="#">🐦</a>
+          <a class="social-link" href="#">📸</a>
+          <a class="social-link" href="#">▶️</a>
+          <a class="social-link" href="#">💼</a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Courses</h4>
+        <ul>
+          <li><a href="#">Web Development</a></li>
+          <li><a href="#">Python Programming</a></li>
+          <li><a href="#">Android Dev</a></li>
+          <li><a href="#">Ethical Hacking</a></li>
+          <li><a href="#">Cyber Security</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="#" onclick="showPage('about',null)">About Us</a></li>
+          <li><a href="#" onclick="showPage('blog',null)">Blog</a></li>
+          <li><a href="#">Careers</a></li>
+          <li><a href="#" onclick="showPage('contact',null)">Contact</a></li>
+          <li><a href="#">Partners</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Support</h4>
+        <ul>
+          <li><a href="#">Help Center</a></li>
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Terms of Service</a></li>
+          <li><a href="#">Refund Policy</a></li>
+          <li><a href="#">Sitemap</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 Choudhary Digital Craft. All rights reserved. Made with ❤️ in Rajasthan, India.</p>
+      <div class="footer-legal">
+        <a href="#">Privacy</a>
+        <a href="#">Terms</a>
+        <a href="#">Cookies</a>
+      </div>
+    </div>
+  </footer>
+</div>
+
+<!-- ══════════════════════ ABOUT PAGE ══════════════════════ -->
+<div class="page" id="page-about">
+  <div class="page-hero">
+    <h1>About <span class="grad-text">Us</span></h1>
+    <p>Building India's next generation of digital professionals</p>
+  </div>
+  <section>
+    <div class="about-grid">
+      <div class="about-img">
+        <div class="about-img-placeholder">🏫<br><small style="font-size:.6em;color:var(--text2)">Choudhary Digital Craft</small></div>
+      </div>
+      <div class="about-content">
+        <div class="section-tag">Our Story</div>
+        <h2>Empowering India Through <span class="grad-text">Digital Education</span></h2>
+        <p>Choudhary Digital Craft was founded with one mission: make world-class tech education accessible to every student in India, regardless of their background or location.</p>
+        <p>We believe that knowledge is power — and today's digital skills are the keys to tomorrow's opportunities. From rural Rajasthan to metro cities, our students are landing jobs, getting freelance clients, and building startups.</p>
+        <p>All our Ethical Hacking education is strictly legal and authorized — we train security professionals to protect systems, not attack them. We hold the highest ethical standards in cybersecurity education.</p>
+        <div class="about-vals">
+          <div class="about-val"><div class="about-val-icon">🎯</div><h4>Mission Driven</h4><p>Democratizing tech education across India</p></div>
+          <div class="about-val"><div class="about-val-icon">🔒</div><h4>100% Legal</h4><p>All security training is authorized & ethical</p></div>
+          <div class="about-val"><div class="about-val-icon">🏆</div><h4>Quality First</h4><p>Industry-vetted curriculum & certified faculty</p></div>
+          <div class="about-val"><div class="about-val-icon">💪</div><h4>Student Success</h4><p>Career support even after course completion</p></div>
+        </div>
+      </div>
+    </div>
+    <div class="team-section">
+      <div class="section-header">
+        <div class="section-tag">👥 Meet The Team</div>
+        <h2>The Minds Behind <span class="grad-text">CDC</span></h2>
+      </div>
+      <div class="grid-4">
+        <div class="team-card">
+          <div class="team-avatar" style="background:linear-gradient(135deg,var(--accent),var(--accent2));">👨‍💻</div>
+          <h4>Arjun Choudhary</h4>
+          <span>Founder & CEO</span>
+          <p>Full-stack developer with 10+ years experience. Ex-TCS, passionate about education.</p>
+        </div>
+        <div class="team-card">
+          <div class="team-avatar" style="background:linear-gradient(135deg,#06b6d4,#0284c7);">🔐</div>
+          <h4>Neha Sharma</h4>
+          <span>Cybersecurity Lead</span>
+          <p>CEH certified, OSCP holder. 8 years in ethical hacking & penetration testing.</p>
+        </div>
+        <div class="team-card">
+          <div class="team-avatar" style="background:linear-gradient(135deg,#10b981,#059669);">📱</div>
+          <h4>Vikram Patel</h4>
+          <span>Android Instructor</span>
+          <p>Google-certified Android developer. 50+ published apps on Play Store.</p>
+        </div>
+        <div class="team-card">
+          <div class="team-avatar" style="background:linear-gradient(135deg,#f97316,#dc2626);">📊</div>
+          <h4>Sunita Meena</h4>
+          <span>Content Director</span>
+          <p>EdTech veteran, curriculum designer with focus on practical learning outcomes.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <div style="background:linear-gradient(135deg,var(--accent),var(--accent2));padding:60px clamp(16px,4vw,48px);text-align:center;margin:0;">
+    <h2 style="font-family:var(--font-head);font-size:2rem;font-weight:800;color:#fff;margin-bottom:12px;">Have Questions? Let's Talk!</h2>
+    <p style="color:rgba(255,255,255,0.85);margin-bottom:24px;">Our team is ready to help you choose the right course for your goals.</p>
+    <button class="btn" style="background:#fff;color:var(--accent);font-weight:800;" onclick="showPage('contact',null)">Contact Us →</button>
+  </div>
+</div>
+
+<!-- ══════════════════════ COURSES PAGE ══════════════════════ -->
+<div class="page" id="page-courses">
+  <div class="page-hero">
+    <h1>Our <span class="grad-text">Courses</span></h1>
+    <p>Practical, industry-aligned training from expert instructors</p>
+  </div>
+  <section>
+    <div class="category-tabs">
+      <button class="cat-tab active" onclick="filterCourses(this,'all')">All Courses</button>
+      <button class="cat-tab" onclick="filterCourses(this,'webdev')">Web Dev</button>
+      <button class="cat-tab" onclick="filterCourses(this,'programming')">Programming</button>
+      <button class="cat-tab" onclick="filterCourses(this,'android')">Android</button>
+      <button class="cat-tab" onclick="filterCourses(this,'security')">Security</button>
+    </div>
+    <div class="grid-3" id="coursesGrid">
+      <div class="course-card" data-cat="webdev">
+        <div class="course-thumb" style="background:linear-gradient(135deg,#1e3a5f,#2563eb);">🌐</div>
+        <div class="course-body">
+          <span class="course-badge" style="background:rgba(37,99,235,0.15);color:#60a5fa;">Web Dev</span>
+          <h3>HTML & CSS Fundamentals</h3>
+          <p>Master modern HTML5 and CSS3. Build responsive websites from scratch with Flexbox & Grid.</p>
+          <div class="course-meta"><div class="course-price">₹799</div><div class="course-rating">⭐ 4.9 <span style="color:var(--text3)">(204)</span></div></div>
+          <button class="btn btn-primary enroll-btn btn-sm" onclick="showToast('✅ Enrolled in HTML & CSS!')">Enroll Now</button>
+        </div>
+      </div>
+      <div class="course-card" data-cat="webdev">
+        <div class="course-thumb" style="background:linear-gradient(135deg,#1c1917,#92400e);">⚡</div>
+        <div class="course-body">
+          <span class="course-badge" style="background:rgba(146,64,14,0.15);color:#fbbf24;">JavaScript</span>
+          <h3>JavaScript — Zero to Advanced</h3>
+          <p>ES6+, DOM manipulation, async/await, APIs, and real-world project building.</p>
+          <div class="course-meta"><div class="course-price">₹1,299</div><div class="course-rating">⭐ 4.8 <span style="color:var(--text3)">(178)</span></div></div>
+          <button class="btn btn-primary enroll-btn btn-sm" onclick="showToast('✅ Enrolled in JavaScript!')">Enroll Now</button>
+        </div>
+      </div>
+      <div class="course-card" data-cat="programming">
+        <div class="course-thumb" style="background:linear-gradient(135deg,#064e3b,#166534);">🐍</div>
+        <div class="course-body">
+          <span class="course-badge" style="background:rgba(22,101,52,0.2);color:#4ade80;">Python</span>
+          <h3>Python Programming Masterclass</h3>
+          <p>From beginner to expert: data structures, OOP, Flask web apps, and automation.</p>
+          <div class="course-meta"><div class="course-price">₹1,499</div><div class="course-rating">⭐ 4.9 <span style="color:var(--text3)">(267)</span></div></div>
+          <button class="btn btn-primary enroll-btn btn-sm" onclick="showToast('✅ Enrolled in Python!')">Enroll Now</button>
+        </div>
+      </div>
+      <div class="course-card" data-cat="webdev">
+        <div class="course-thumb" style="background:linear-gradient(135deg,#1e1b4b,#4338ca);">🚀</div>
+        <div class="course-body">
+          <span class="course-badge" style="background:rgba(67,56,202,0.15);color:#818cf8;">Full Stack</span>
+          <h3>Full-Stack Web Development</h3>
+          <p>Complete path: HTML → CSS → JS → Python Flask → MySQL → Deployment.</p>
+          <div class="course-meta"><div class="course-price">₹1,999 <small>₹4,999</small></div><div class="course-rating">⭐ 4.9 <span style="color:var(--text3)">(312)</span></div></div>
+          <button class="btn btn-primary enroll-btn btn-sm" onclick="showToast('✅ Enrolled in Full Stack!')">Enroll Now</button>
+        </div>
+      </div>
+      <div class="course-card" data-cat="android">
+        <div class="course-thumb" style="background:linear-gradient(135deg,#064e3b,#059669);">📱</div>
+        <div class="course-body">
+          <span class="course-badge" style="background:rgba(5,150,105,0.15);color:#34d399;">Android</span>
+          <h3>Android APK Development</h3>
+          <p>Build complete Android apps. Kotlin basics, APK creation, Play Store publishing.</p>
+          <div class="course-meta"><div class="course-price">₹1,799 <small>₹3,999</small></div><div class="course-rating">⭐ 4.7 <span style="color:var(--text3)">(156)</span></div></div>
+          <button class="btn btn-primary enroll-btn btn-sm" onclick="showToast('✅ Enrolled in Android Dev!')">Enroll Now</button>
+        </div>
+      </div>
+      <div class="course-card" data-cat="security">
+        <div class="course-thumb" style="background:linear-gradient(135deg,#1a1a2e,#6b21a8);">🔐</div>
+        <div class="course-body">
+          <span class="course-badge" style="background:rgba(109,40,217,0.15);color:#a78bfa;">Ethical Hacking</span>
+          <h3>Ethical Hacking Fundamentals</h3>
+          <p>Legal pentesting, Kali Linux, network scanning, vulnerability assessment. CEH prep.</p>
+          <div class="course-meta"><div class="course-price">₹2,499 <small>₹5,999</small></div><div class="course-rating">⭐ 4.8 <span style="color:var(--text3)">(198)</span></div></div>
+          <button class="btn btn-primary enroll-btn btn-sm" onclick="showToast('✅ Enrolled in Ethical Hacking!')">Enroll Now</button>
+        </div>
+      </div>
+      <div class="course-card" data-cat="security">
+        <div class="course-thumb" style="background:linear-gradient(135deg,#1c0618,#9d174d);">🛡️</div>
+        <div class="course-body">
+          <span class="course-badge" style="background:rgba(157,23,77,0.15);color:#f9a8d4;">Cyber Security</span>
+          <h3>Cyber Security Awareness</h3>
+          <p>Digital safety, phishing prevention, data protection, and secure online practices.</p>
+          <div class="course-meta"><div class="course-price">₹999</div><div class="course-rating">⭐ 4.6 <span style="color:var(--text3)">(145)</span></div></div>
+          <button class="btn btn-primary enroll-btn btn-sm" onclick="showToast('✅ Enrolled in Cyber Security!')">Enroll Now</button>
+        </div>
+      </div>
+      <div class="course-card" data-cat="android">
+        <div class="course-thumb" style="background:linear-gradient(135deg,#1c1917,#b45309);">⚙️</div>
+        <div class="course-body">
+          <span class="course-badge" style="background:rgba(180,83,9,0.15);color:#fcd34d;">Android Adv</span>
+          <h3>Advanced APK & App Deployment</h3>
+          <p>Advanced features, Firebase integration, monetization, and Google Play Store optimization.</p>
+          <div class="course-meta"><div class="course-price">₹2,199</div><div class="course-rating">⭐ 4.7 <span style="color:var(--text3)">(89)</span></div></div>
+          <button class="btn btn-primary enroll-btn btn-sm" onclick="showToast('✅ Enrolled!')">Enroll Now</button>
+        </div>
+      </div>
+      <div class="course-card" data-cat="programming">
+        <div class="course-thumb" style="background:linear-gradient(135deg,#0c4a6e,#0369a1);">🗄️</div>
+        <div class="course-body">
+          <span class="course-badge" style="background:rgba(3,105,161,0.15);color:#38bdf8;">Database</span>
+          <h3>MySQL & Database Design</h3>
+          <p>Relational databases, SQL queries, joins, indexes, and MySQL with Python Flask integration.</p>
+          <div class="course-meta"><div class="course-price">₹899</div><div class="course-rating">⭐ 4.8 <span style="color:var(--text3)">(134)</span></div></div>
+          <button class="btn btn-primary enroll-btn btn-sm" onclick="showToast('✅ Enrolled in MySQL!')">Enroll Now</button>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ══════════════════════ EBOOKS PAGE ══════════════════════ -->
+<div class="page" id="page-ebooks">
+  <div class="page-hero">
+    <h1>E-Book <span class="grad-text">Store</span></h1>
+    <p>Premium PDFs — buy once, download forever</p>
+  </div>
+  <section>
+    <div class="search-bar">
+      <div class="search-input-wrap">
+        <span class="search-icon">🔍</span>
+        <input type="text" placeholder="Search e-books..." oninput="filterBooks(this.value)">
+      </div>
+      <button class="filter-btn">Filter ▾</button>
+    </div>
+    <div class="category-tabs">
+      <button class="cat-tab active" onclick="filterEbooks(this,'all')">All Books</button>
+      <button class="cat-tab" onclick="filterEbooks(this,'webdev')">Web Dev</button>
+      <button class="cat-tab" onclick="filterEbooks(this,'security')">Security</button>
+      <button class="cat-tab" onclick="filterEbooks(this,'programming')">Programming</button>
+      <button class="cat-tab" onclick="filterEbooks(this,'android')">Android</button>
+    </div>
+    <div class="grid-2" id="ebooksGrid">
+      <div class="ebook-card" data-cat="webdev">
+        <div class="ebook-cover" style="background:linear-gradient(135deg,#1e3a5f,#2563eb);">🌐</div>
+        <div class="ebook-info">
+          <div class="ebook-cat">Web Development</div>
+          <h4>HTML & CSS Mastery Guide</h4>
+          <p>200+ examples, responsive design, modern CSS techniques, and best practices.</p>
+          <div class="ebook-footer"><span class="ebook-price">₹299</span><button class="btn btn-primary btn-sm" onclick="openModal('HTML & CSS Mastery Guide','₹299')">Buy & Download</button></div>
+        </div>
+      </div>
+      <div class="ebook-card" data-cat="security">
+        <div class="ebook-cover" style="background:linear-gradient(135deg,#3b0764,#7c3aed);">🔐</div>
+        <div class="ebook-info">
+          <div class="ebook-cat">Cyber Security</div>
+          <h4>Ethical Hacking Handbook</h4>
+          <p>Legal security tools, OWASP top 10, Kali Linux setup, and penetration testing basics.</p>
+          <div class="ebook-footer"><span class="ebook-price">₹499</span><button class="btn btn-primary btn-sm" onclick="openModal('Ethical Hacking Handbook','₹499')">Buy & Download</button></div>
+        </div>
+      </div>
+      <div class="ebook-card" data-cat="programming">
+        <div class="ebook-cover" style="background:linear-gradient(135deg,#064e3b,#047857);">🐍</div>
+        <div class="ebook-info">
+          <div class="ebook-cat">Programming</div>
+          <h4>Python for Beginners</h4>
+          <p>Complete Python guide: syntax, data structures, OOP, and 30+ hands-on exercises.</p>
+          <div class="ebook-footer"><span class="ebook-price">₹349</span><button class="btn btn-primary btn-sm" onclick="openModal('Python for Beginners','₹349')">Buy & Download</button></div>
+        </div>
+      </div>
+      <div class="ebook-card" data-cat="android">
+        <div class="ebook-cover" style="background:linear-gradient(135deg,#1c1917,#78350f);">📱</div>
+        <div class="ebook-info">
+          <div class="ebook-cat">Android Dev</div>
+          <h4>Android APK Development Guide</h4>
+          <p>Build your first Android app: setup, Kotlin basics, UI design, and Play Store publishing.</p>
+          <div class="ebook-footer"><span class="ebook-price">₹399</span><button class="btn btn-primary btn-sm" onclick="openModal('Android APK Development Guide','₹399')">Buy & Download</button></div>
+        </div>
+      </div>
+      <div class="ebook-card" data-cat="webdev">
+        <div class="ebook-cover" style="background:linear-gradient(135deg,#1c1917,#92400e);">⚡</div>
+        <div class="ebook-info">
+          <div class="ebook-cat">JavaScript</div>
+          <h4>JavaScript ES6+ Cookbook</h4>
+          <p>Modern JS patterns, promises, async/await, modules, and 50 practical code recipes.</p>
+          <div class="ebook-footer"><span class="ebook-price">₹449</span><button class="btn btn-primary btn-sm" onclick="openModal('JavaScript ES6+ Cookbook','₹449')">Buy & Download</button></div>
+        </div>
+      </div>
+      <div class="ebook-card" data-cat="security">
+        <div class="ebook-cover" style="background:linear-gradient(135deg,#1c0618,#9d174d);">🛡️</div>
+        <div class="ebook-info">
+          <div class="ebook-cat">Cyber Security</div>
+          <h4>Network Security Fundamentals</h4>
+          <p>TCP/IP, firewalls, VPNs, intrusion detection, and cybersecurity career roadmap.</p>
+          <div class="ebook-footer"><span class="ebook-price">₹379</span><button class="btn btn-primary btn-sm" onclick="openModal('Network Security Fundamentals','₹379')">Buy & Download</button></div>
+        </div>
+      </div>
+      <div class="ebook-card" data-cat="programming">
+        <div class="ebook-cover" style="background:linear-gradient(135deg,#0c4a6e,#0369a1);">🗄️</div>
+        <div class="ebook-info">
+          <div class="ebook-cat">Database</div>
+          <h4>MySQL Complete Reference</h4>
+          <p>Database design, SQL queries, stored procedures, optimization, and Flask integration.</p>
+          <div class="ebook-footer"><span class="ebook-price">₹299</span><button class="btn btn-primary btn-sm" onclick="openModal('MySQL Complete Reference','₹299')">Buy & Download</button></div>
+        </div>
+      </div>
+      <div class="ebook-card" data-cat="webdev">
+        <div class="ebook-cover" style="background:linear-gradient(135deg,#1e1b4b,#4338ca);">🚀</div>
+        <div class="ebook-info">
+          <div class="ebook-cat">Web Dev</div>
+          <h4>Flask Web Development Handbook</h4>
+          <p>Build full-featured web apps with Python Flask, Jinja2, SQLAlchemy, and deployment.</p>
+          <div class="ebook-footer"><span class="ebook-price">₹549</span><button class="btn btn-primary btn-sm" onclick="openModal('Flask Web Development Handbook','₹549')">Buy & Download</button></div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ══════════════════════ BLOG PAGE ══════════════════════ -->
+<div class="page" id="page-blog">
+  <div class="page-hero">
+    <h1>Our <span class="grad-text">Blog</span></h1>
+    <p>Tech insights, tutorials, and career tips from our experts</p>
+  </div>
+  <section>
+    <div class="search-bar">
+      <div class="search-input-wrap">
+        <span class="search-icon">🔍</span>
+        <input type="text" placeholder="Search articles...">
+      </div>
+    </div>
+    <div class="grid-3">
+      <div class="blog-card">
+        <div class="blog-img" style="background:linear-gradient(135deg,#1e3a5f,#2563eb);">🌐</div>
+        <div class="blog-body">
+          <div class="blog-meta"><span class="blog-tag">Web Dev</span><span class="blog-date">12 Dec 2024</span></div>
+          <h3>10 CSS Tricks Every Developer Should Know in 2025</h3>
+          <p>From container queries to CSS nesting — these modern techniques will level up your frontend game instantly.</p>
+          <a href="#" class="blog-read" onclick="showToast('📖 Opening article...')">Read More →</a>
+        </div>
+      </div>
+      <div class="blog-card">
+        <div class="blog-img" style="background:linear-gradient(135deg,#1a1a2e,#6b21a8);">🔐</div>
+        <div class="blog-body">
+          <div class="blog-meta"><span class="blog-tag">Security</span><span class="blog-date">8 Dec 2024</span></div>
+          <h3>Beginner's Guide to Ethical Hacking: Where to Start in 2025</h3>
+          <p>A clear roadmap for aspiring security professionals — tools, certifications, and legal frameworks you need to know.</p>
+          <a href="#" class="blog-read" onclick="showToast('📖 Opening article...')">Read More →</a>
+        </div>
+      </div>
+      <div class="blog-card">
+        <div class="blog-img" style="background:linear-gradient(135deg,#064e3b,#059669);">🐍</div>
+        <div class="blog-body">
+          <div class="blog-meta"><span class="blog-tag">Python</span><span class="blog-date">5 Dec 2024</span></div>
+          <h3>Python Automation: 5 Scripts That Save Hours Every Week</h3>
+          <p>Practical automation scripts for file management, email sending, web scraping, and more — with full code.</p>
+          <a href="#" class="blog-read" onclick="showToast('📖 Opening article...')">Read More →</a>
+        </div>
+      </div>
+      <div class="blog-card">
+        <div class="blog-img" style="background:linear-gradient(135deg,#1c1917,#78350f);">📱</div>
+        <div class="blog-body">
+          <div class="blog-meta"><span class="blog-tag">Android</span><span class="blog-date">2 Dec 2024</span></div>
+          <h3>How to Build and Publish Your First Android App (Free Guide)</h3>
+          <p>Step-by-step walkthrough from idea to Play Store — no prior experience needed to follow along.</p>
+          <a href="#" class="blog-read" onclick="showToast('📖 Opening article...')">Read More →</a>
+        </div>
+      </div>
+      <div class="blog-card">
+        <div class="blog-img" style="background:linear-gradient(135deg,#0c4a6e,#0369a1);">💼</div>
+        <div class="blog-body">
+          <div class="blog-meta"><span class="blog-tag">Career</span><span class="blog-date">28 Nov 2024</span></div>
+          <h3>Top 7 Tech Skills That Pay the Most in India Right Now</h3>
+          <p>Current market data on salaries and freelance rates for the most demanded tech skills in 2024-2025.</p>
+          <a href="#" class="blog-read" onclick="showToast('📖 Opening article...')">Read More →</a>
+        </div>
+      </div>
+      <div class="blog-card">
+        <div class="blog-img" style="background:linear-gradient(135deg,#1c0618,#9d174d);">🛡️</div>
+        <div class="blog-body">
+          <div class="blog-meta"><span class="blog-tag">Cyber</span><span class="blog-date">25 Nov 2024</span></div>
+          <h3>How to Stay Safe Online: 15 Security Habits You Need Now</h3>
+          <p>Simple but powerful cybersecurity practices that protect your personal data, accounts, and devices.</p>
+          <a href="#" class="blog-read" onclick="showToast('📖 Opening article...')">Read More →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ══════════════════════ CONTACT PAGE ══════════════════════ -->
+<div class="page" id="page-contact">
+  <div class="page-hero">
+    <h1>Contact <span class="grad-text">Us</span></h1>
+    <p>We'd love to hear from you — reach out anytime</p>
+  </div>
+  <section>
+    <div class="contact-grid">
+      <div class="contact-info">
+        <h3>Get In Touch</h3>
+        <p>Have questions about our courses, e-books, or partnerships? We respond within 24 hours.</p>
+        <div class="contact-items">
+          <div class="contact-item">
+            <div class="contact-item-icon" style="background:rgba(99,102,241,0.15);">📧</div>
+            <div class="contact-item-info"><label>Email</label><span>hello@choudharydigitalcraft.in</span></div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-item-icon" style="background:rgba(16,185,129,0.15);">📱</div>
+            <div class="contact-item-info"><label>WhatsApp</label><span>+91 98765 43210</span></div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-item-icon" style="background:rgba(6,182,212,0.15);">📍</div>
+            <div class="contact-item-info"><label>Location</label><span>Jodhpur, Rajasthan, India</span></div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-item-icon" style="background:rgba(234,179,8,0.15);">🕐</div>
+            <div class="contact-item-info"><label>Support Hours</label><span>Mon–Sat, 9AM – 7PM IST</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="form-card">
+        <h3 style="font-family:var(--font-head);font-weight:800;margin-bottom:24px;">Send a Message</h3>
+        <div class="form-row">
+          <div class="form-group"><label>First Name</label><input type="text" placeholder="Rahul"></div>
+          <div class="form-group"><label>Last Name</label><input type="text" placeholder="Sharma"></div>
+        </div>
+        <div class="form-group"><label>Email</label><input type="email" placeholder="your@email.com"></div>
+        <div class="form-group"><label>Subject</label>
+          <select><option>General Enquiry</option><option>Course Support</option><option>E-Book Purchase</option><option>Technical Issue</option><option>Partnership</option></select>
+        </div>
+        <div class="form-group"><label>Message</label><textarea placeholder="Tell us how we can help you..."></textarea></div>
+        <button class="btn btn-primary form-submit" onclick="showToast('✅ Message sent! We\'ll reply within 24 hours.')">Send Message 📨</button>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ══════════════════════ DASHBOARD PAGE ══════════════════════ -->
+<div class="page" id="page-dashboard">
+  <div class="dash-layout">
+    <div class="dash-sidebar">
+      <div class="dash-user">
+        <div class="dash-avatar">R</div>
+        <h4>Rahul Sharma</h4>
+        <span>Premium Student</span>
+      </div>
+      <div class="dash-nav">
+        <div class="dash-nav-item active" onclick="showDashTab(this,'overview')"><span class="icon">📊</span> Overview</div>
+        <div class="dash-nav-item" onclick="showDashTab(this,'courses')"><span class="icon">🎓</span> My Courses</div>
+        <div class="dash-nav-item" onclick="showDashTab(this,'ebooks')"><span class="icon">📚</span> My E-Books</div>
+        <div class="dash-nav-item" onclick="showDashTab(this,'certs')"><span class="icon">🏆</span> Certificates</div>
+        <div class="dash-nav-item" onclick="showDashTab(this,'profile')"><span class="icon">👤</span> Profile</div>
+        <div class="dash-nav-item" onclick="showPage('home',null)" style="margin-top:20px;"><span class="icon">🚪</span> Logout</div>
+      </div>
+    </div>
+    <div class="dash-main">
+      <!-- OVERVIEW TAB -->
+      <div id="dash-overview">
+        <div class="dash-header">
+          <h2>👋 Welcome back, Rahul!</h2>
+          <span style="font-size:.85rem;color:var(--text2)">Last login: Today, 10:32 AM</span>
+        </div>
+        <div class="dash-cards">
+          <div class="dash-stat"><div class="dash-stat-val" style="color:var(--accent);">3</div><div class="dash-stat-label">Enrolled Courses</div></div>
+          <div class="dash-stat"><div class="dash-stat-val" style="color:var(--accent3);">5</div><div class="dash-stat-label">E-Books Purchased</div></div>
+          <div class="dash-stat"><div class="dash-stat-val" style="color:var(--accent4);">1</div><div class="dash-stat-label">Certificates Earned</div></div>
+          <div class="dash-stat"><div class="dash-stat-val" style="color:var(--yellow);">68%</div><div class="dash-stat-label">Avg Progress</div></div>
+        </div>
+        <h3 style="font-family:var(--font-head);font-weight:700;margin-bottom:16px;">Course Progress</h3>
+        <div class="progress-list">
+          <div class="progress-item">
+            <div class="progress-header"><span>🌐 Full-Stack Web Development</span><strong>82%</strong></div>
+            <div class="progress-bar"><div class="progress-fill" style="width:82%"></div></div>
+          </div>
+          <div class="progress-item">
+            <div class="progress-header"><span>🔐 Ethical Hacking Fundamentals</span><strong>45%</strong></div>
+            <div class="progress-bar"><div class="progress-fill" style="width:45%"></div></div>
+          </div>
+          <div class="progress-item">
+            <div class="progress-header"><span>🐍 Python Programming Masterclass</span><strong>78%</strong></div>
+            <div class="progress-bar"><div class="progress-fill" style="width:78%"></div></div>
+          </div>
+        </div>
+      </div>
+      <!-- COURSES TAB -->
+      <div id="dash-courses" style="display:none">
+        <div class="dash-header"><h2>My Courses</h2></div>
+        <div class="progress-list">
+          <div class="progress-item" style="display:flex;align-items:center;gap:16px;">
+            <div style="width:50px;height:50px;background:linear-gradient(135deg,#1e3a5f,#2563eb);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.3rem;flex-shrink:0;">🌐</div>
+            <div style="flex:1">
+              <div class="progress-header"><span>Full-Stack Web Development</span><strong>82%</strong></div>
+              <div class="progress-bar"><div class="progress-fill" style="width:82%"></div></div>
+              <small style="color:var(--text3)">Last studied: 2 days ago</small>
+            </div>
+            <button class="btn btn-primary btn-sm" onclick="showToast('🚀 Continuing course...')">Continue</button>
+          </div>
+          <div class="progress-item" style="display:flex;align-items:center;gap:16px;">
+            <div style="width:50px;height:50px;background:linear-gradient(135deg,#1a1a2e,#6b21a8);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.3rem;flex-shrink:0;">🔐</div>
+            <div style="flex:1">
+              <div class="progress-header"><span>Ethical Hacking Fundamentals</span><strong>45%</strong></div>
+              <div class="progress-bar"><div class="progress-fill" style="width:45%"></div></div>
+              <small style="color:var(--text3)">Last studied: 5 days ago</small>
+            </div>
+            <button class="btn btn-primary btn-sm" onclick="showToast('🚀 Continuing course...')">Continue</button>
+          </div>
+          <div class="progress-item" style="display:flex;align-items:center;gap:16px;">
+            <div style="width:50px;height:50px;background:linear-gradient(135deg,#064e3b,#166534);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.3rem;flex-shrink:0;">🐍</div>
+            <div style="flex:1">
+              <div class="progress-header"><span>Python Programming Masterclass</span><strong>78%</strong></div>
+              <div class="progress-bar"><div class="progress-fill" style="width:78%"></div></div>
+              <small style="color:var(--text3)">Last studied: Yesterday</small>
+            </div>
+            <button class="btn btn-primary btn-sm" onclick="showToast('🚀 Continuing course...')">Continue</button>
+          </div>
+        </div>
+      </div>
+      <!-- EBOOKS TAB -->
+      <div id="dash-ebooks" style="display:none">
+        <div class="dash-header"><h2>My E-Books</h2></div>
+        <div class="downloads-list">
+          <div class="dl-item"><div class="dl-icon">📄</div><div class="dl-info"><h4>HTML & CSS Mastery Guide</h4><span>PDF · 4.2 MB · Purchased: Nov 2024</span></div><button class="btn btn-outline btn-sm" onclick="showToast('📥 Downloading...')">⬇ Download</button></div>
+          <div class="dl-item"><div class="dl-icon">📄</div><div class="dl-info"><h4>Ethical Hacking Handbook</h4><span>PDF · 8.7 MB · Purchased: Nov 2024</span></div><button class="btn btn-outline btn-sm" onclick="showToast('📥 Downloading...')">⬇ Download</button></div>
+          <div class="dl-item"><div class="dl-icon">📄</div><div class="dl-info"><h4>Python for Beginners</h4><span>PDF · 3.1 MB · Purchased: Oct 2024</span></div><button class="btn btn-outline btn-sm" onclick="showToast('📥 Downloading...')">⬇ Download</button></div>
+          <div class="dl-item"><div class="dl-icon">📄</div><div class="dl-info"><h4>JavaScript ES6+ Cookbook</h4><span>PDF · 5.4 MB · Purchased: Oct 2024</span></div><button class="btn btn-outline btn-sm" onclick="showToast('📥 Downloading...')">⬇ Download</button></div>
+          <div class="dl-item"><div class="dl-icon">📄</div><div class="dl-info"><h4>MySQL Complete Reference</h4><span>PDF · 2.9 MB · Purchased: Sep 2024</span></div><button class="btn btn-outline btn-sm" onclick="showToast('📥 Downloading...')">⬇ Download</button></div>
+        </div>
+      </div>
+      <!-- CERTS TAB -->
+      <div id="dash-certs" style="display:none">
+        <div class="dash-header"><h2>My Certificates</h2></div>
+        <div class="cert-grid">
+          <div class="cert-card">
+            <div class="cert-icon">🏆</div>
+            <div class="cert-info"><h4>Python Programming Masterclass</h4><span>Issued: 15 Oct 2024</span><br><button class="btn btn-outline btn-sm" style="margin-top:8px;" onclick="showToast('🎓 Certificate downloaded!')">⬇ Download</button></div>
+          </div>
+          <div class="cert-card" style="opacity:.5">
+            <div class="cert-icon" style="background:var(--bg3);font-size:1.3rem;display:flex;align-items:center;justify-content:center;color:var(--text3);">🔒</div>
+            <div class="cert-info"><h4>Full-Stack Web Development</h4><span>Complete 100% to unlock</span></div>
+          </div>
+          <div class="cert-card" style="opacity:.5">
+            <div class="cert-icon" style="background:var(--bg3);font-size:1.3rem;display:flex;align-items:center;justify-content:center;color:var(--text3);">🔒</div>
+            <div class="cert-info"><h4>Ethical Hacking Fundamentals</h4><span>Complete 100% to unlock</span></div>
+          </div>
+        </div>
+      </div>
+      <!-- PROFILE TAB -->
+      <div id="dash-profile" style="display:none">
+        <div class="dash-header"><h2>My Profile</h2></div>
+        <div class="form-card">
+          <div class="form-row">
+            <div class="form-group"><label>First Name</label><input value="Rahul" type="text"></div>
+            <div class="form-group"><label>Last Name</label><input value="Sharma" type="text"></div>
+          </div>
+          <div class="form-group"><label>Email</label><input value="rahul@example.com" type="email"></div>
+          <div class="form-group"><label>Phone</label><input value="+91 98765 43210" type="tel"></div>
+          <div class="form-group"><label>City</label><input value="Jodhpur, Rajasthan" type="text"></div>
+          <div class="form-group"><label>Bio</label><textarea placeholder="Tell us about yourself...">Aspiring full-stack developer from Rajasthan</textarea></div>
+          <button class="btn btn-primary" onclick="showToast('✅ Profile updated!')">Save Changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════ ADMIN PAGE ══════════════════════ -->
+<div class="page" id="page-admin">
+  <div class="dash-layout">
+    <div class="dash-sidebar">
+      <div class="dash-user">
+        <div class="dash-avatar" style="background:linear-gradient(135deg,var(--red),var(--orange));">A</div>
+        <h4>Admin Panel</h4>
+        <span style="color:var(--red);">Super Admin</span>
+      </div>
+      <div class="dash-nav">
+        <div class="dash-nav-item active" onclick="showAdminTab(this,'overview')"><span class="icon">📊</span> Dashboard</div>
+        <div class="dash-nav-item" onclick="showAdminTab(this,'courses')"><span class="icon">🎓</span> Manage Courses</div>
+        <div class="dash-nav-item" onclick="showAdminTab(this,'ebooks')"><span class="icon">📚</span> Manage E-Books</div>
+        <div class="dash-nav-item" onclick="showAdminTab(this,'students')"><span class="icon">👥</span> Students</div>
+        <div class="dash-nav-item" onclick="showAdminTab(this,'orders')"><span class="icon">🛒</span> Orders</div>
+        <div class="dash-nav-item" onclick="showAdminTab(this,'analytics')"><span class="icon">📈</span> Analytics</div>
+        <div class="dash-nav-item" onclick="showPage('home',null)" style="margin-top:20px;"><span class="icon">🚪</span> Logout</div>
+      </div>
+    </div>
+    <div class="dash-main">
+
+      <!-- ADMIN OVERVIEW -->
+      <div id="admin-overview">
+        <div class="dash-header"><h2>🛡️ Admin Dashboard</h2><button class="btn btn-primary btn-sm" onclick="showToast('🔄 Data refreshed!')">Refresh</button></div>
+        <div class="admin-stats">
+          <div class="admin-stat blue">
+            <div class="admin-stat-val">12,847</div>
+            <div class="admin-stat-label">Total Students</div>
+            <div class="admin-stat-change up">↑ +5.2% this month</div>
+          </div>
+          <div class="admin-stat green">
+            <div class="admin-stat-val">₹4.2L</div>
+            <div class="admin-stat-label">Revenue This Month</div>
+            <div class="admin-stat-change up">↑ +18.7% vs last month</div>
+          </div>
+          <div class="admin-stat orange">
+            <div class="admin-stat-val">50</div>
+            <div class="admin-stat-label">Active Courses</div>
+            <div class="admin-stat-change up">↑ +3 new this month</div>
+          </div>
+          <div class="admin-stat red">
+            <div class="admin-stat-val">200+</div>
+            <div class="admin-stat-label">E-Books Available</div>
+            <div class="admin-stat-change up">↑ +12 new this month</div>
+          </div>
+        </div>
+        <div class="chart-container">
+          <div class="chart-header"><h3>📈 Monthly Revenue (₹)</h3><select style="width:auto;padding:6px 12px;"><option>Last 8 months</option><option>Last 12 months</option></select></div>
+          <div class="mini-chart" id="revenueChart"></div>
+          <div class="chart-labels" id="chartLabels"></div>
+        </div>
+        <div class="admin-table-wrap">
+          <div class="admin-table-header"><h3>Recent Orders</h3><button class="btn btn-outline btn-sm" onclick="showAdminTab(document.querySelector('.dash-nav-item:nth-child(5)'),'orders')">View All</button></div>
+          <table>
+            <thead><tr><th>Order ID</th><th>Student</th><th>Item</th><th>Amount</th><th>Status</th></tr></thead>
+            <tbody>
+              <tr><td>#ORD-2891</td><td>Rahul S.</td><td>Ethical Hacking Course</td><td>₹2,499</td><td><span class="status-badge status-active">Paid</span></td></tr>
+              <tr><td>#ORD-2890</td><td>Priya M.</td><td>Python E-Book</td><td>₹349</td><td><span class="status-badge status-active">Paid</span></td></tr>
+              <tr><td>#ORD-2889</td><td>Amit V.</td><td>Full Stack Course</td><td>₹1,999</td><td><span class="status-badge status-pending">Pending</span></td></tr>
+              <tr><td>#ORD-2888</td><td>Sunita K.</td><td>Android Dev Course</td><td>₹1,799</td><td><span class="status-badge status-active">Paid</span></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- MANAGE COURSES -->
+      <div id="admin-courses" style="display:none">
+        <div class="dash-header"><h2>Manage Courses</h2><button class="btn btn-primary btn-sm" onclick="showToast('➕ Course upload form opened!')">+ Add Course</button></div>
+        <div class="upload-zone" style="margin-bottom:24px;" onclick="showToast('📁 File picker opened!')">
+          <div class="upload-icon">📤</div>
+          <h4>Upload New Course Materials</h4>
+          <p>Drag & drop videos, PDFs, or ZIP archives here. Max 2GB per file.</p>
+        </div>
+        <div class="admin-table-wrap">
+          <table>
+            <thead><tr><th>Course Name</th><th>Category</th><th>Students</th><th>Price</th><th>Status</th><th>Actions</th></tr></thead>
+            <tbody>
+              <tr><td>Full-Stack Web Development</td><td>Web Dev</td><td>312</td><td>₹1,999</td><td><span class="status-badge status-active">Active</span></td><td><div class="action-btns"><button class="action-btn" onclick="showToast('✏️ Editing...')">✏️</button><button class="action-btn" onclick="showToast('🗑️ Deleted!')">🗑️</button></div></td></tr>
+              <tr><td>Ethical Hacking Fundamentals</td><td>Security</td><td>198</td><td>₹2,499</td><td><span class="status-badge status-active">Active</span></td><td><div class="action-btns"><button class="action-btn" onclick="showToast('✏️ Editing...')">✏️</button><button class="action-btn" onclick="showToast('🗑️ Deleted!')">🗑️</button></div></td></tr>
+              <tr><td>Android APK Development</td><td>Android</td><td>156</td><td>₹1,799</td><td><span class="status-badge status-active">Active</span></td><td><div class="action-btns"><button class="action-btn" onclick="showToast('✏️ Editing...')">✏️</button><button class="action-btn" onclick="showToast('🗑️ Deleted!')">🗑️</button></div></td></tr>
+              <tr><td>Python Programming Masterclass</td><td>Programming</td><td>267</td><td>₹1,499</td><td><span class="status-badge status-pending">Draft</span></td><td><div class="action-btns"><button class="action-btn" onclick="showToast('✏️ Editing...')">✏️</button><button class="action-btn" onclick="showToast('🗑️ Deleted!')">🗑️</button></div></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- MANAGE EBOOKS -->
+      <div id="admin-ebooks" style="display:none">
+        <div class="dash-header"><h2>Manage E-Books</h2><button class="btn btn-primary btn-sm" onclick="showToast('➕ E-Book upload form opened!')">+ Upload E-Book</button></div>
+        <div class="upload-zone" style="margin-bottom:24px;" onclick="showToast('📄 PDF picker opened!')">
+          <div class="upload-icon">📄</div>
+          <h4>Upload New E-Book (PDF)</h4>
+          <p>Only PDF files accepted. Max 50MB. Cover image optional.</p>
+        </div>
+        <div class="admin-table-wrap">
+          <table>
+            <thead><tr><th>E-Book Title</th><th>Category</th><th>Downloads</th><th>Price</th><th>Status</th><th>Actions</th></tr></thead>
+            <tbody>
+              <tr><td>HTML & CSS Mastery Guide</td><td>Web Dev</td><td>847</td><td>₹299</td><td><span class="status-badge status-active">Active</span></td><td><div class="action-btns"><button class="action-btn" onclick="showToast('✏️ Editing...')">✏️</button><button class="action-btn" onclick="showToast('🗑️ Deleted!')">🗑️</button></div></td></tr>
+              <tr><td>Ethical Hacking Handbook</td><td>Security</td><td>623</td><td>₹499</td><td><span class="status-badge status-active">Active</span></td><td><div class="action-btns"><button class="action-btn" onclick="showToast('✏️ Editing...')">✏️</button><button class="action-btn" onclick="showToast('🗑️ Deleted!')">🗑️</button></div></td></tr>
+              <tr><td>Python for Beginners</td><td>Programming</td><td>1,204</td><td>₹349</td><td><span class="status-badge status-active">Active</span></td><td><div class="action-btns"><button class="action-btn" onclick="showToast('✏️ Editing...')">✏️</button><button class="action-btn" onclick="showToast('🗑️ Deleted!')">🗑️</button></div></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- STUDENTS -->
+      <div id="admin-students" style="display:none">
+        <div class="dash-header"><h2>Manage Students</h2><button class="btn btn-outline btn-sm" onclick="showToast('📤 Exporting data...')">Export CSV</button></div>
+        <div class="admin-table-wrap">
+          <table>
+            <thead><tr><th>Student</th><th>Email</th><th>Courses</th><th>Spent</th><th>Joined</th><th>Status</th></tr></thead>
+            <tbody>
+              <tr><td>Rahul Sharma</td><td>rahul@example.com</td><td>3</td><td>₹6,297</td><td>Sep 2024</td><td><span class="status-badge status-active">Active</span></td></tr>
+              <tr><td>Priya Meena</td><td>priya@example.com</td><td>2</td><td>₹3,498</td><td>Oct 2024</td><td><span class="status-badge status-active">Active</span></td></tr>
+              <tr><td>Amit Verma</td><td>amit@example.com</td><td>1</td><td>₹1,999</td><td>Nov 2024</td><td><span class="status-badge status-pending">New</span></td></tr>
+              <tr><td>Sunita Kumari</td><td>sunita@example.com</td><td>4</td><td>₹8,294</td><td>Aug 2024</td><td><span class="status-badge status-active">Active</span></td></tr>
+              <tr><td>Vikram Singh</td><td>vikram@example.com</td><td>0</td><td>₹0</td><td>Nov 2024</td><td><span class="status-badge status-inactive">Inactive</span></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- ORDERS -->
+      <div id="admin-orders" style="display:none">
+        <div class="dash-header"><h2>Manage Orders</h2></div>
+        <div class="admin-table-wrap">
+          <table>
+            <thead><tr><th>Order ID</th><th>Student</th><th>Item</th><th>Amount</th><th>Date</th><th>Status</th><th>Action</th></tr></thead>
+            <tbody>
+              <tr><td>#ORD-2891</td><td>Rahul S.</td><td>Ethical Hacking Course</td><td>₹2,499</td><td>Dec 12</td><td><span class="status-badge status-active">Paid</span></td><td><button class="action-btn" onclick="showToast('👁 Viewing order...')">👁</button></td></tr>
+              <tr><td>#ORD-2890</td><td>Priya M.</td><td>Python E-Book</td><td>₹349</td><td>Dec 11</td><td><span class="status-badge status-active">Paid</span></td><td><button class="action-btn" onclick="showToast('👁 Viewing order...')">👁</button></td></tr>
+              <tr><td>#ORD-2889</td><td>Amit V.</td><td>Full Stack Course</td><td>₹1,999</td><td>Dec 11</td><td><span class="status-badge status-pending">Pending</span></td><td><button class="action-btn" onclick="showToast('✅ Order approved!')">✅</button></td></tr>
+              <tr><td>#ORD-2888</td><td>Sunita K.</td><td>Android Dev Course</td><td>₹1,799</td><td>Dec 10</td><td><span class="status-badge status-active">Paid</span></td><td><button class="action-btn" onclick="showToast('👁 Viewing order...')">👁</button></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- ANALYTICS -->
+      <div id="admin-analytics" style="display:none">
+        <div class="dash-header"><h2>Analytics</h2></div>
+        <div class="admin-stats">
+          <div class="admin-stat blue"><div class="admin-stat-val">89%</div><div class="admin-stat-label">Course Completion Rate</div></div>
+          <div class="admin-stat green"><div class="admin-stat-val">4.8</div><div class="admin-stat-label">Avg Rating</div></div>
+          <div class="admin-stat orange"><div class="admin-stat-val">₹51.2L</div><div class="admin-stat-label">Total Revenue</div></div>
+          <div class="admin-stat red"><div class="admin-stat-val">96%</div><div class="admin-stat-label">Student Satisfaction</div></div>
+        </div>
+        <div class="chart-container">
+          <div class="chart-header"><h3>📊 Student Enrollments per Month</h3></div>
+          <div class="mini-chart" id="enrollChart"></div>
+          <div class="chart-labels" id="enrollLabels"></div>
+        </div>
+        <div class="grid-2" style="margin-top:20px;">
+          <div class="admin-stat blue" style="padding:20px;">
+            <h4 style="font-family:var(--font-head);font-weight:700;margin-bottom:14px;">Top Courses</h4>
+            <div style="display:flex;flex-direction:column;gap:8px;">
+              <div style="display:flex;justify-content:space-between;font-size:.85rem;"><span>Full-Stack Web Dev</span><strong>312 students</strong></div>
+              <div style="display:flex;justify-content:space-between;font-size:.85rem;"><span>Python Masterclass</span><strong>267 students</strong></div>
+              <div style="display:flex;justify-content:space-between;font-size:.85rem;"><span>Ethical Hacking</span><strong>198 students</strong></div>
+            </div>
+          </div>
+          <div class="admin-stat green" style="padding:20px;">
+            <h4 style="font-family:var(--font-head);font-weight:700;margin-bottom:14px;">Top E-Books</h4>
+            <div style="display:flex;flex-direction:column;gap:8px;">
+              <div style="display:flex;justify-content:space-between;font-size:.85rem;"><span>Python for Beginners</span><strong>1,204 sales</strong></div>
+              <div style="display:flex;justify-content:space-between;font-size:.85rem;"><span>HTML & CSS Guide</span><strong>847 sales</strong></div>
+              <div style="display:flex;justify-content:space-between;font-size:.85rem;"><span>Ethical Hacking HB</span><strong>623 sales</strong></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════ LOGIN PAGE ══════════════════════ -->
+<div class="page" id="page-login">
+  <div class="auth-wrap">
+    <div class="auth-card">
+      <div style="font-size:2.5rem;text-align:center;margin-bottom:8px;">⚡</div>
+      <h2>Welcome Back</h2>
+      <p>Sign in to your Choudhary Digital Craft account</p>
+      <div class="auth-tabs">
+        <div class="auth-tab active" onclick="switchAuthTab(this,'login')">Sign In</div>
+        <div class="auth-tab" onclick="switchAuthTab(this,'register')">Register</div>
+      </div>
+      <div id="loginForm">
+        <div class="form-group"><label>Email</label><input type="email" placeholder="your@email.com"></div>
+        <div class="form-group"><label>Password</label><input type="password" placeholder="••••••••"></div>
+        <button class="btn btn-primary form-submit" onclick="doLogin()">Sign In →</button>
+        <div style="text-align:center;margin-top:12px;font-size:.82rem;color:var(--text3)"><a href="#" style="color:var(--accent)">Forgot password?</a></div>
+        <div class="divider">or continue with</div>
+        <div class="social-btns">
+          <button class="social-btn" onclick="showToast('🔵 Google sign-in...')">🔵 Google</button>
+          <button class="social-btn" onclick="showToast('📘 Facebook sign-in...')">📘 Facebook</button>
+        </div>
+      </div>
+      <div id="registerForm" style="display:none">
+        <div class="form-row">
+          <div class="form-group"><label>First Name</label><input placeholder="Rahul"></div>
+          <div class="form-group"><label>Last Name</label><input placeholder="Sharma"></div>
+        </div>
+        <div class="form-group"><label>Email</label><input type="email" placeholder="your@email.com"></div>
+        <div class="form-group"><label>Phone</label><input type="tel" placeholder="+91 98765 43210"></div>
+        <div class="form-group"><label>Password</label><input type="password" placeholder="Create a strong password"></div>
+        <button class="btn btn-primary form-submit" onclick="doRegister()">Create Account →</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+</main>
+
+<!-- PURCHASE MODAL -->
+<div class="modal-overlay" id="purchaseModal">
+  <div class="modal">
+    <button class="modal-close" onclick="closeModal()">✕</button>
+    <h3>🛒 Complete Purchase</h3>
+    <div id="modalContent"></div>
+    <div class="form-group" style="margin-top:16px;"><label>Name on Card</label><input placeholder="Rahul Sharma"></div>
+    <div class="form-group"><label>Card Number</label><input placeholder="4242 4242 4242 4242"></div>
+    <div class="form-row">
+      <div class="form-group"><label>Expiry</label><input placeholder="MM/YY"></div>
+      <div class="form-group"><label>CVV</label><input placeholder="•••"></div>
+    </div>
+    <p style="font-size:.78rem;color:var(--text3);margin:12px 0;">🔒 Secured by 256-bit SSL encryption. Also available: UPI, Paytm, Net Banking</p>
+    <button class="btn btn-primary form-submit" onclick="doPurchase()">Pay Now ✓</button>
+  </div>
+</div>
+
+<!-- TOAST -->
+<div class="toast" id="toast">
+  <span class="toast-icon">✅</span>
+  <span id="toastMsg">Action completed!</span>
+</div>
+
+<script>
+// PAGE NAVIGATION
+function showPage(pageId, clickedLink) {
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  document.getElementById('page-' + pageId).classList.add('active');
+  document.querySelectorAll('.nav-links a').forEach(a => a.classList.remove('active'));
+  if (clickedLink && clickedLink.classList) clickedLink.classList.add('active');
+  window.scrollTo(0, 0);
+  if (pageId === 'admin') { buildChart('revenueChart','chartLabels',true); }
+  if (pageId === 'admin') setTimeout(() => buildChart('enrollChart','enrollLabels',false), 100);
+}
+
+// THEME
+function toggleTheme() {
+  const html = document.documentElement;
+  const isDark = html.getAttribute('data-theme') === 'dark';
+  html.setAttribute('data-theme', isDark ? 'light' : 'dark');
+  document.querySelector('.theme-btn').textContent = isDark ? '🌙' : '☀️';
+}
+
+// MOBILE NAV
+function toggleMobile() {
+  document.getElementById('mobileNav').classList.toggle('open');
+}
+function closeMobile() {
+  document.getElementById('mobileNav').classList.remove('open');
+}
+
+// TOAST
+let toastTimer;
+function showToast(msg) {
+  const toast = document.getElementById('toast');
+  document.getElementById('toastMsg').textContent = msg;
+  toast.classList.add('show');
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(() => toast.classList.remove('show'), 3200);
+}
+
+// MODAL
+function openModal(title, price) {
+  document.getElementById('modalContent').innerHTML = `<div style="background:var(--bg2);border:1px solid var(--border);border-radius:10px;padding:14px 18px;margin-bottom:4px;"><strong>${title}</strong><br><span style="color:var(--accent4);font-size:1.1rem;font-weight:800;">${price}</span></div>`;
+  document.getElementById('purchaseModal').classList.add('open');
+}
+function closeModal() { document.getElementById('purchaseModal').classList.remove('open'); }
+function doPurchase() { closeModal(); setTimeout(() => showToast('🎉 Purchase successful! Check your e-mail for download link.'), 300); }
+
+// DASHBOARD TABS
+function showDashTab(el, tab) {
+  document.querySelectorAll('#page-dashboard .dash-main > div').forEach(d => d.style.display = 'none');
+  document.getElementById('dash-' + tab).style.display = 'block';
+  document.querySelectorAll('#page-dashboard .dash-nav-item').forEach(d => d.classList.remove('active'));
+  el.classList.add('active');
+}
+
+// ADMIN TABS
+function showAdminTab(el, tab) {
+  document.querySelectorAll('#page-admin .dash-main > div').forEach(d => d.style.display = 'none');
+  document.getElementById('admin-' + tab).style.display = 'block';
+  document.querySelectorAll('#page-admin .dash-nav-item').forEach(d => d.classList.remove('active'));
+  if (el && el.classList) el.classList.add('active');
+  if (tab === 'analytics') { setTimeout(() => buildChart('enrollChart','enrollLabels',false), 50); }
+}
+
+// AUTH
+function switchAuthTab(el, tab) {
+  document.querySelectorAll('.auth-tab').forEach(t => t.classList.remove('active'));
+  el.classList.add('active');
+  document.getElementById('loginForm').style.display = tab === 'login' ? 'block' : 'none';
+  document.getElementById('registerForm').style.display = tab === 'register' ? 'block' : 'none';
+}
+function doLogin() { showPage('dashboard', null); showToast('👋 Welcome back, Rahul!'); }
+function doRegister() { showPage('dashboard', null); showToast('🎉 Account created! Welcome to CDC!'); }
+
+// FILTER COURSES
+function filterCourses(el, cat) {
+  document.querySelectorAll('.category-tabs .cat-tab').forEach(t => t.classList.remove('active'));
+  el.classList.add('active');
+  document.querySelectorAll('#coursesGrid .course-card').forEach(card => {
+    card.style.display = (cat === 'all' || card.dataset.cat === cat) ? 'block' : 'none';
+  });
+}
+
+// FILTER EBOOKS
+function filterEbooks(el, cat) {
+  document.querySelectorAll('#page-ebooks .category-tabs .cat-tab').forEach(t => t.classList.remove('active'));
+  el.classList.add('active');
+  document.querySelectorAll('#ebooksGrid .ebook-card').forEach(card => {
+    card.style.display = (cat === 'all' || card.dataset.cat === cat) ? 'flex' : 'none';
+  });
+}
+
+function filterBooks(q) {
+  const query = q.toLowerCase();
+  document.querySelectorAll('#ebooksGrid .ebook-card').forEach(card => {
+    const text = card.textContent.toLowerCase();
+    card.style.display = text.includes(query) ? 'flex' : 'none';
+  });
+}
+
+// MINI BAR CHART
+function buildChart(chartId, labelsId, isRevenue) {
+  const el = document.getElementById(chartId);
+  const labEl = document.getElementById(labelsId);
+  if (!el) return;
+  const months = ['May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+  const vals = isRevenue ? [18,22,19,28,31,35,38,42] : [120,155,180,210,245,290,312,380];
+  const max = Math.max(...vals);
+  el.innerHTML = vals.map(v => `<div class="bar" style="height:${Math.round((v/max)*100)}%" title="${isRevenue ? '₹'+v+'K' : v+' students'}"></div>`).join('');
+  labEl.innerHTML = months.map(m => `<div class="chart-label">${m}</div>`).join('');
+}
+
+// CLOSE MODAL ON OVERLAY CLICK
+document.getElementById('purchaseModal').addEventListener('click', function(e) {
+  if (e.target === this) closeModal();
+});
+
+// INIT CHART
+setTimeout(() => {
+  if (document.getElementById('page-admin').classList.contains('active')) buildChart('revenueChart','chartLabels',true);
+}, 500);
+
+// ANIMATE PROGRESS BARS ON DASH LOAD
+function animateProgress() {
+  document.querySelectorAll('.progress-fill').forEach(bar => {
+    const w = bar.style.width; bar.style.width = '0';
+    setTimeout(() => bar.style.width = w, 200);
+  });
+}
+setTimeout(animateProgress, 300);
+</script>
+<script src="app.js"></script>
+</body>
+</html>

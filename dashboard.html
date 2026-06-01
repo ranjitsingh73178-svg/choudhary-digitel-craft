@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dashboard - Choudhary Digital Craft</title>
+
+<link rel="stylesheet" href="style.css">
+</head>
+<body onload="checkLogin(); loadUser();">
+
+<section class="page-hero">
+    <div class="container">
+
+        <h1>Student Dashboard</h1>
+
+        <p>
+            Welcome,
+            <span id="username">Student</span>
+        </p>
+
+        <div class="hero-actions mt-3">
+            <button class="btn btn-danger" onclick="logout()">
+                Logout
+            </button>
+        </div>
+
+    </div>
+</section>
+
+<section>
+    <div class="container">
+
+        <div class="section-header">
+            <span class="label">MY LEARNING</span>
+            <h2>My Courses</h2>
+        </div>
+
+        <div class="courses-grid">
+
+            <div class="card">
+                <div class="card-body">
+                    <h3>HTML & CSS Masterclass</h3>
+                    <p>Learn modern web development.</p>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-body">
+                    <h3>Python Programming</h3>
+                    <p>Beginner to advanced Python course.</p>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-body">
+                    <h3>Android App Development</h3>
+                    <p>Create APK applications.</p>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+<section>
+    <div class="container">
+
+        <div class="section-header">
+            <span class="label">MY EBOOKS</span>
+            <h2>Purchased E-Books</h2>
+        </div>
+
+        <div class="courses-grid">
+
+            <div class="card">
+                <div class="card-body">
+                    <h3>Web Development Guide</h3>
+                    <button class="btn btn-primary">
+                        Download PDF
+                    </button>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-body">
+                    <h3>Python Complete Notes</h3>
+                    <button class="btn btn-primary">
+                        Download PDF
+                    </button>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+<script src="app.js"></script>
+
+</body>
+</html>

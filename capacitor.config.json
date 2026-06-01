@@ -1,0 +1,6 @@
+{
+  "appId": "com.choudharydigitalcraft.app",
+  "appName": "Choudhary Digital Craft",
+  "webDir": "frontend",
+  "bundledWebRuntime": false
+}
